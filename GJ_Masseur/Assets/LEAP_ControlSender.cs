@@ -9,11 +9,11 @@ public class LEAP_ControlSender : MonoBehaviour
     public GameObject LHand;
 
     public Vector3 Value;
-    [Range(1f, 5f)]
+    [Range(1f, 30f)]
     public float PosMultiplier;
-    [Range(0.0f, 3f)]
+    [Range(0f, 10f)]
     public float RotMultiplier;
-    [Range(1f, 3f)]
+    [Range(1f, 20f)]
     public float ScaleMultiplier;
 
     public Vector2 X_MinMaxValue;
@@ -46,7 +46,8 @@ public class LEAP_ControlSender : MonoBehaviour
 
         Position = RHand.transform.position * PosMultiplier;
         Rotation = RHand.transform.rotation.eulerAngles * RotMultiplier;
-        Scale = RHand.transform.position.z * ScaleMultiplier;
+        //Scale = 7* RHand.transform.position.z * ScaleMultiplier;
+        Scale = map(RHand.transform.position.z, 0.3f, -0.3f, 0.2f, 5);
 
         OBJ.transform.position = new Vector3(Position.x, Position.y, OBJ.transform.position.z);
         //RHand.transform.rotation.eulerAngles
@@ -54,7 +55,7 @@ public class LEAP_ControlSender : MonoBehaviour
       //  OBJ.transform.localEulerAngles = new Vector3(OBJ.transform.rotation.eulerAngles.x, OBJ.transform.rotation.eulerAngles.y, -Rotation.z);
         OBJ.transform.localScale = new Vector3(Scale, Scale, OBJ.transform.localScale.z);
 
-        //Position = map(Value.x, -X_MinMaxValue.x, X_MinMaxValue.x, -2, 2);
+        //Scale = map(RHand.transform.position.z, -0.3, 0.3, 3, 12);
         //NormalizedValue.y = map(Value.y, Y_MinMaxValue.x, Y_MinMaxValue.y, 0, 1);
 
     }
