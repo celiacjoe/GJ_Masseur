@@ -130,8 +130,8 @@ public class detec : MonoBehaviour
         material.SetTexture("_MainTex", B);
         img1.GetComponent<Renderer>().material.mainTexture = B;
         img2.GetComponent<Renderer>().material.mainTexture = B;
-        img3.GetComponent<Renderer>().material.mainTexture = B;
-       // decor.GetComponent<Renderer>().material.SetTexture("_sec", texture);
+        img3.GetComponent<Renderer>().material.mainTexture = B;     
+        decor.GetComponent<Renderer>().material.SetTexture("_sec", texture);
     }
     void updateTexture()
     {
