@@ -363,7 +363,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 85e13d24b8435164383dc8e82ae7acf6, type: 2}
+  - {fileID: 2100000, guid: 9da5185853635194a9cc9f7667ed5aa3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -457,7 +457,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e9fcab61ce4755d46968190d4f033d20, type: 2}
+  - {fileID: 2100000, guid: 0ce92b5bc9ee54e4b9a58ed951a69e26, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -782,6 +782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f7713b956302614e91796209a7c71f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Color: {fileID: 0}
   RHand: {fileID: 1271946515}
   LHand: {fileID: 1448574680}
   Value: {x: 0, y: 0, z: 0}
@@ -3104,7 +3105,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4f13e6162b4a34e4e8c2b1ebaaf0dbf4, type: 2}
+  - {fileID: 2100000, guid: 613904b1c9c48964cb0e57562db318f6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3233,6 +3234,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8277696098899967077, guid: 8276176da4f78614c875e9a07b6a6637,
         type: 3}
+      propertyPath: _s1
+      value: 0.322
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277696098899967077, guid: 8276176da4f78614c875e9a07b6a6637,
+        type: 3}
+      propertyPath: _s2
+      value: 0.413
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277696098899967077, guid: 8276176da4f78614c875e9a07b6a6637,
+        type: 3}
       propertyPath: img1
       value: 
       objectReference: {fileID: 127455231}
@@ -3246,6 +3257,11 @@ PrefabInstance:
       propertyPath: img3
       value: 
       objectReference: {fileID: 31533308}
+    - target: {fileID: 8277696098899967077, guid: 8276176da4f78614c875e9a07b6a6637,
+        type: 3}
+      propertyPath: _blur
+      value: 0.094
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8276176da4f78614c875e9a07b6a6637, type: 3}
 --- !u!1 &1962472530
