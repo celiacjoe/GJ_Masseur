@@ -7,7 +7,7 @@ public class detec : MonoBehaviour
     RenderTexture A;
     RenderTexture B;
     //public Texture C;
-    public GameObject decor;
+    //public GameObject decor;
     public GameObject img1;
     public GameObject img2;
     public GameObject img3;
@@ -131,7 +131,7 @@ public class detec : MonoBehaviour
         img1.GetComponent<Renderer>().material.mainTexture = B;
         img2.GetComponent<Renderer>().material.mainTexture = B;
         img3.GetComponent<Renderer>().material.mainTexture = B;     
-        decor.GetComponent<Renderer>().material.SetTexture("_sec", texture);
+        //decor.GetComponent<Renderer>().material.SetTexture("_sec", texture);
     }
     void updateTexture()
     {

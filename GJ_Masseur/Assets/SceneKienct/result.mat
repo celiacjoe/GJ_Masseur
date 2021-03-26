@@ -73,7 +73,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     - _img1PosX: 0
-    - _img1PosY: 0
+    - _img1PosY: -0
     - _img1Rot: 0
     - _img2PosX: 0
     - _img2PosY: 0
