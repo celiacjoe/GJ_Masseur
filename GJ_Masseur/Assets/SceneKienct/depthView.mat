@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: depthView
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 9514b3adf82f99c4abbf64e736e92e7a, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -72,6 +72,16 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
+    - _rx1: 0.143
+    - _rx2: 0.748
+    - _ry1: 0.159
+    - _ry2: 0.765
+    - _s1: 0.267
+    - _s2: 0.308
+    - _s3: 0.661
+    - _s4: 0.124
+    - _s5: 0.066
+    - _s6: 0.5
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
