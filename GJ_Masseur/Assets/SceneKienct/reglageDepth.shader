@@ -3,6 +3,7 @@
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+     _sec("_sec", 2D) = "white" {}
         _s1("_s1",Range(0,1)) = 0
             _s2("_s2",Range(0,1)) = 0
             _s3("_s3",Range(0,1)) = 0
@@ -36,11 +37,11 @@
             struct v2f
             {
                 float2 uv : TEXCOORD0;
-                UNITY_FOG_COORDS(1)
                 float4 vertex : SV_POSITION;
             };
 
             sampler2D _MainTex;
+            sampler2D _sec;
             float4 _MainTex_ST;
             float _s1;
             float _s2;
@@ -66,9 +67,9 @@
             {
                 float2 uv = 1. - i.uv;
                 float2 uv2 = map(i.uv, float2(1., 1.), float2(0., 0.), float2(_rx1, _ry1), float2(_rx2, _ry2));
-                float t1 = smoothstep(_s1, _s2, tex2D(_MainTex, uv2).x);
+                float4 t1 =  tex2D(_MainTex, uv2).x;
                 float m1 = smoothstep(_s3, _s4, distance(i.uv, float2(0.5, 0.5)))*smoothstep(_s5,_s6,i.uv.y);
-                fixed4 col = float4(t1,t1,t1,1.)*m1;
+                fixed4 col = t1;
                 return col;
             }
             ENDCG

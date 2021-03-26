@@ -7,6 +7,10 @@ public class detec : MonoBehaviour
     RenderTexture A;
     RenderTexture B;
     //public Texture C;
+    public GameObject decor;
+    public GameObject img1;
+    public GameObject img2;
+    public GameObject img3;
 
     public Material material;
     int handle_main;
@@ -36,6 +40,8 @@ public class detec : MonoBehaviour
     public float _ry1;
     [Range(0, 1)]
     public float _ry2;
+    [Range(0, 1)]
+    public float _blur;
     public GameObject DepthSourceManager;
     private KinectSensor _Sensor;
     private CoordinateMapper _Mapper;
@@ -115,12 +121,17 @@ public class detec : MonoBehaviour
         compute_shader.SetFloat("_rx2", _rx2);
         compute_shader.SetFloat("_ry1", _ry1);
         compute_shader.SetFloat("_ry2", _ry2);
+        compute_shader.SetFloat("_blur", _blur);
         compute_shader.SetTexture(handle_main, "writer", B);
         compute_shader.Dispatch(handle_main, B.width / 8, B.height / 8, 1);
         compute_shader.SetTexture(handle_main, "reader", B);
         compute_shader.SetTexture(handle_main, "writer", A);
         compute_shader.Dispatch(handle_main, B.width / 8, B.height / 8, 1);
         material.SetTexture("_MainTex", B);
+        img1.GetComponent<Renderer>().material.mainTexture = B;
+        img2.GetComponent<Renderer>().material.mainTexture = B;
+        img3.GetComponent<Renderer>().material.mainTexture = B;     
+        decor.GetComponent<Renderer>().material.SetTexture("_sec", texture);
     }
     void updateTexture()
     {

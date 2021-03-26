@@ -69,7 +69,7 @@
                 float tb = tex2D(_MainTex, uv2 * 0.5 + 0.5 + float2(_img2PosX, _img2PosY)).b;
                 float ta = tex2D(_MainTex, uv3 * 0.5 + 0.5 + float2(_img3PosX, _img3PosY)).a;
                 float t1 = max(tr, max(tg,max( tb, ta)));
-                return float4(tr,tg,tb,1.);
+                return float4(t1,t1,t1,1.);
             }
             ENDCG
         }
