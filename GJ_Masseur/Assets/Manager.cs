@@ -23,7 +23,7 @@ public class Manager : MonoBehaviour
     void Start()
     {
         Started = false;
-
+        State = 0;
         Phase = "zero";
         Layer01.SetActive(false);
         Layer02.SetActive(false);
@@ -54,32 +54,34 @@ public class Manager : MonoBehaviour
         {
             Phase = "PHASE 1 OK";
             S_Detec._img1 = 0.6f;
+            Layer01.SetActive(true);
+            S_LeapControl.OBJ = Layer01;
             Debug.Log("PHASE 1 OK");
         }
         else if (State == 2)
         {
             S_Detec._img2 = 0.6f;
-            Layer01.SetActive(true);
-            S_LeapControl.OBJ = Layer01;
+            Layer02.SetActive(true);
+            S_LeapControl.OBJ = Layer02;
             Phase = "PHASE 2 OK";
         }
         else if (State == 3)
         {
             S_Detec._img3 = 0.6f;
-            S_LeapControl.OBJ = Layer02;
-            Layer02.SetActive(true);
+            S_LeapControl.OBJ = Layer03;
+            Layer03.SetActive(true);
             Phase = "PHASE 3 OK";
         }
         else if (State == 4)
         {
-            S_LeapControl.OBJ = Layer03;
-            Layer03.SetActive(true);
+            S_LeapControl.OBJ = Layer04;
+            Layer04.SetActive(true);
             Phase = "PHASE 4 OK";
         }
         else if (State == 5)
         {
-            S_LeapControl.OBJ = Layer04;
-            Layer04.SetActive(true);
+            S_LeapControl.OBJ = Empty;
+           // Layer04.SetActive(true);
             Phase = "Last";
             Started = false;
         }
