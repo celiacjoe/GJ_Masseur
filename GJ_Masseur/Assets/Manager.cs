@@ -14,6 +14,7 @@ public class Manager : MonoBehaviour
     public Shader ShaderColor;
     public Material MatColor;
     public GameObject Empty;
+    public GameObject LayerBase;
     public GameObject Layer01;
     public GameObject Layer02;
     public GameObject Layer03;
@@ -62,12 +63,12 @@ public class Manager : MonoBehaviour
 
         if (State == 0)
         {
-            ColorChange = Layer01;
+            ColorChange = LayerBase;
 
         }
         else if (State == 1)
         {
-            ColorChange = Layer02;
+            ColorChange = Layer01;
             Phase = "PHASE 1 OK";
             S_Detec._img1 = 0.6f;
             Layer01.SetActive(true);
@@ -76,7 +77,7 @@ public class Manager : MonoBehaviour
         }
         else if (State == 2)
         {
-            ColorChange = Layer03;
+            ColorChange = Layer02;
             S_Detec._img2 = 0.6f;
             Layer02.SetActive(true);
             S_LeapControl.OBJ = Layer02;
@@ -84,7 +85,7 @@ public class Manager : MonoBehaviour
         }
         else if (State == 3)
         {
-            ColorChange = Layer04;
+            ColorChange = Layer03;
             S_Detec._img3 = 0.6f;
             S_LeapControl.OBJ = Layer03;
             Layer03.SetActive(true);
@@ -92,7 +93,7 @@ public class Manager : MonoBehaviour
         }
         else if (State == 4)
         {
-            ColorChange = Layer05;
+            ColorChange = Layer04;
             S_LeapControl.OBJ = Layer04;
             Layer04.SetActive(true);
             Phase = "PHASE 4 OK";

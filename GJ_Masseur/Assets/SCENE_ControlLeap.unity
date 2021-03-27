@@ -2620,6 +2620,7 @@ MonoBehaviour:
   ShaderColor: {fileID: 0}
   MatColor: {fileID: 0}
   Empty: {fileID: 1962472530}
+  LayerBase: {fileID: 1933933393}
   Layer01: {fileID: 127455231}
   Layer02: {fileID: 1803559851}
   Layer03: {fileID: 31533308}
@@ -3316,7 +3317,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1933933392}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1933933393}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a4a42fd72fa3e94fbf5dcfe1eb7ce84, type: 3}
@@ -3523,8 +3524,19 @@ PrefabInstance:
       propertyPath: DepthSourceManager
       value: 
       objectReference: {fileID: 1286933409}
+    - target: {fileID: 8277696098899967079, guid: 8276176da4f78614c875e9a07b6a6637,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: badd3bce4ecfe1b46a1efd460a9c92bd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8276176da4f78614c875e9a07b6a6637, type: 3}
+--- !u!1 &1933933393 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8277696098899967075, guid: 8276176da4f78614c875e9a07b6a6637,
+    type: 3}
+  m_PrefabInstance: {fileID: 1933933392}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1962472530
 GameObject:
   m_ObjectHideFlags: 0
