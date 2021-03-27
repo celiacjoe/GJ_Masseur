@@ -11,6 +11,7 @@ public class Manager : MonoBehaviour
     public float Duration;
 
     public Animator AC_Next;
+    public Animator AC_Flash;
     public GameObject Empty;
     public GameObject LayerBase;
     public GameObject Layer01;
@@ -56,6 +57,7 @@ public class Manager : MonoBehaviour
         if (Timer > Duration)
         {
             AC_Next.Play("AN_ApparitionInfo");
+            AC_Flash.Play("AN_Flash");
             State++;
             Timer = 0;
         }
@@ -88,6 +90,7 @@ public class Manager : MonoBehaviour
         }
         else if (State == 4)
         {
+            S_Detec._img4 = 0.6f;
             S_LeapControl.OBJ = Layer04;
             Layer04.SetActive(true);
             Phase = "PHASE 4 OK";
@@ -95,7 +98,7 @@ public class Manager : MonoBehaviour
         else if (State == 5)
         {
             S_LeapControl.OBJ = Empty;
-           // Layer04.SetActive(true);
+           // Layer05.SetActive(true);
             Phase = "Last";
             Started = false;
         }
