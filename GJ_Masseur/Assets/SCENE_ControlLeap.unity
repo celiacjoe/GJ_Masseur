@@ -2797,7 +2797,7 @@ MonoBehaviour:
   Phase: 
   Duration: 5
   AC_Next: {fileID: 1304355679}
-  AC_Flash: {fileID: 0}
+  AC_Kinect: {fileID: 1933933396}
   Empty: {fileID: 1962472530}
   LayerBase: {fileID: 1933933393}
   Layer01: {fileID: 127455231}
