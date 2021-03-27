@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MAT_Red
+  m_Name: Color_Img1
   m_Shader: {fileID: 4800000, guid: f1ff5f06427e9b546b1b63b89e6ddd94, type: 3}
-  m_ShaderKeywords: _0BLUE1ALPHA_ON _0RG1BA_ON
+  m_ShaderKeywords: _0RED1GREEN_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -43,6 +43,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Maintex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -55,22 +59,43 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _T_Leo_01:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture0:
+        m_Texture: {fileID: 2800000, guid: 1ca30b58f307be94abacb210fa2b4d46, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture1:
+        m_Texture: {fileID: 2800000, guid: 2d279f222d8664f4daf653cea96bcdf5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample0:
+        m_Texture: {fileID: 2800000, guid: 73f9ca0b58c565f4ba2b70b09296b9cb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _texcoord:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _0Blue1Alpha: 1
-    - _0RG1BA: 1
-    - _0Red1Green: 0
+    - _0Blue1Alpha: 0
+    - _0RG1BA: 0
+    - _0Red1Green: 1
     - _BumpScale: 1
-    - _ColorScrollSpeed: 0
+    - _ColorScrollSpeed: 2
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _Float0: 7
+    - _Float1: 1
+    - _Float2: 1
+    - _Float3: 5.34
     - _GlossMapScale: 1
-    - _Glossiness: 0
+    - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _LerpTest: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -79,9 +104,9 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _WhiteToColor: 0
+    - _WhiteToColor: 1
     - _ZWrite: 1
     - __dirty: 0
     m_Colors:
-    - _Color: {r: 1, g: 0, b: 0.11302805, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

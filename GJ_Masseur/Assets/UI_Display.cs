@@ -9,7 +9,7 @@ public class UI_Display : MonoBehaviour
     public TextMeshPro m_textMeshPro;
     //private TMP_FontAsset m_FontAsset;
 
-    private const string label = "Time <#0050FF>count is: </color>{0:2}";
+    private const string label = "<#0050FF> </color>{0:2}";
     private float m_frame;
 
 
