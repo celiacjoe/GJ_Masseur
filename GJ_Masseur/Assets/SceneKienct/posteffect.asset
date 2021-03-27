@@ -17,13 +17,13 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   colored:
-    overrideState: 0
-    value: 1
+    overrideState: 1
+    value: 0
   intensity:
-    overrideState: 0
+    overrideState: 1
     value: 1
   size:
-    overrideState: 0
+    overrideState: 1
     value: 1
   lumContrib:
     overrideState: 0
@@ -45,14 +45,14 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   effet:
-    overrideState: 0
-    value: 0.5
+    overrideState: 1
+    value: 0
   distance:
-    overrideState: 0
-    value: 0.5
+    overrideState: 1
+    value: -0.01
   noise:
-    overrideState: 0
-    value: {fileID: 0}
+    overrideState: 1
+    value: {fileID: 2800000, guid: 2d279f222d8664f4daf653cea96bcdf5, type: 3}
     defaultState: 1
 --- !u!114 &11400000
 MonoBehaviour:

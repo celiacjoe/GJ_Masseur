@@ -71,8 +71,9 @@ public class UI_Display : MonoBehaviour
         }
         if (S_Manager.State == 1)
         {
-            TextSession.SetText( "Place the shape" );
-        } else if (S_Manager.State == 2)
+            TextSession.SetText("Place the shape");
+        }
+        else if (S_Manager.State == 2)
         {
             TextSession.SetText("Compose with the second shape");
             //  AC.SetTrigger("NextSession");
@@ -94,6 +95,7 @@ public class UI_Display : MonoBehaviour
             //m_frame += 1 * Time.deltaTime;
         }
 
+    }
 }
 
 
