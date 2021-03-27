@@ -11,7 +11,7 @@ public class Manager : MonoBehaviour
     public float Duration;
 
     public Animator AC_Next;
-    public Animator AC_Flash;
+    public Animator AC_Kinect;
     public GameObject Empty;
     public GameObject LayerBase;
     public GameObject Layer01;
@@ -45,7 +45,7 @@ public class Manager : MonoBehaviour
 
         if (Input.GetKeyDown("space"))
         {
-
+            State = 0;
             Started = true;
         }
 
@@ -57,7 +57,7 @@ public class Manager : MonoBehaviour
         if (Timer > Duration)
         {
             AC_Next.Play("AN_ApparitionInfo");
-            AC_Flash.Play("AN_Flash");
+            AC_Kinect.Play("AN_Flash");
             State++;
             Timer = 0;
         }
@@ -104,6 +104,9 @@ public class Manager : MonoBehaviour
         }
         else if (State == 5)
         {
+            Started = false;
+            AC_Kinect.SetBool("Finish", true);
+            //AC_Kinect.Play("AN_Focus");
             S_LeapControl.OBJ = Empty;
             Phase = "FINISH";
         }
