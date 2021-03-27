@@ -88,7 +88,7 @@ public class UI_Display : MonoBehaviour
             TextSession.SetText("Compose with the last shape");
             // AC.SetTrigger("NextSession");
         }
-        else if (S_Manager.State == 4)
+        else if (S_Manager.State == 5)
         {
 
             TextSession.SetText("IT'S FINISH");

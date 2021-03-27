@@ -3,7 +3,7 @@
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        _flash("_fhash", Range(0,1)) = 0
+        _flash("_flash", Range(0,1)) = 0
     }
     SubShader
     {
