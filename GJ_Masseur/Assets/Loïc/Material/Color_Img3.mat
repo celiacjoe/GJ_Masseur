@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Color_Img3
   m_Shader: {fileID: 4800000, guid: f1ff5f06427e9b546b1b63b89e6ddd94, type: 3}
-  m_ShaderKeywords: _0BLUE1ALPHA_ON _0RG1BA_ON
+  m_ShaderKeywords: _0RG1BA_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -80,11 +80,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _0Blue1Alpha: 1
+    - _0Blue1Alpha: 0
     - _0RG1BA: 1
     - _0Red1Green: 0
     - _BumpScale: 1
-    - _ColorScrollSpeed: 0.4
+    - _ColorScrollSpeed: 0
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
