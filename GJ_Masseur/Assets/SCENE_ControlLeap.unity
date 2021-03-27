@@ -3733,6 +3733,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6800040868801426505, guid: aa0f60179f99e21469dcb948268287e9,
         type: 3}
+      propertyPath: _rx1
+      value: 0.136
+      objectReference: {fileID: 0}
+    - target: {fileID: 6800040868801426505, guid: aa0f60179f99e21469dcb948268287e9,
+        type: 3}
+      propertyPath: _rx2
+      value: 0.723
+      objectReference: {fileID: 0}
+    - target: {fileID: 6800040868801426505, guid: aa0f60179f99e21469dcb948268287e9,
+        type: 3}
       propertyPath: img1
       value: 
       objectReference: {fileID: 127455231}
