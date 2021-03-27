@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Color_Img1
   m_Shader: {fileID: 4800000, guid: f1ff5f06427e9b546b1b63b89e6ddd94, type: 3}
-  m_ShaderKeywords: _0RED1GREEN_ON
+  m_ShaderKeywords: 
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -82,7 +82,7 @@ Material:
     m_Floats:
     - _0Blue1Alpha: 0
     - _0RG1BA: 0
-    - _0Red1Green: 1
+    - _0Red1Green: 0
     - _BumpScale: 1
     - _ColorScrollSpeed: 7
     - _Cutoff: 0.5

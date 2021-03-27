@@ -3265,6 +3265,11 @@ PrefabInstance:
       objectReference: {fileID: 31533308}
     - target: {fileID: 8277696098899967077, guid: 8276176da4f78614c875e9a07b6a6637,
         type: 3}
+      propertyPath: img4
+      value: 
+      objectReference: {fileID: 1018282212}
+    - target: {fileID: 8277696098899967077, guid: 8276176da4f78614c875e9a07b6a6637,
+        type: 3}
       propertyPath: _blur
       value: 0.178
       objectReference: {fileID: 0}
