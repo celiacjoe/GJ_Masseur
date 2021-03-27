@@ -84,7 +84,7 @@ Material:
     - _0RG1BA: 0
     - _0Red1Green: 1
     - _BumpScale: 1
-    - _ColorScrollSpeed: 7
+    - _ColorScrollSpeed: 0
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
