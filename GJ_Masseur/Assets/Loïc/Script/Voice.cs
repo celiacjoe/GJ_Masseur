@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Voice : MonoBehaviour
 {
+    public float T;
     public float time = 0;
     public string word;
     void Start()
     {
       word = WorldGenerator.GetRandomWord();
-
+       
     }
     
     // Update is called once per frame
@@ -17,7 +18,7 @@ public class Voice : MonoBehaviour
     {
         time += Time.deltaTime;
 
-        if (time >= 2)
+        if (time >= T)
 
         {
             WindowsVoice.speak("Draw a " + word);
