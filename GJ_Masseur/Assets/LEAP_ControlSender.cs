@@ -5,7 +5,7 @@ using UnityEngine;
 public class LEAP_ControlSender : MonoBehaviour
 {
 
-    public Material Color;
+
     public GameObject RHand;
     public GameObject LHand;
 
@@ -25,6 +25,7 @@ public class LEAP_ControlSender : MonoBehaviour
     private Vector3 Position;
     private float Scale;
     private Vector3 Rotation;
+    public float Color;
     // public float X_MinValue;
     // public float X_MaxValue;
     //public float Y_MinValue;
@@ -56,7 +57,8 @@ public class LEAP_ControlSender : MonoBehaviour
         OBJ.transform.eulerAngles = new Vector3(OBJ.transform.rotation.eulerAngles.x, OBJ.transform.rotation.eulerAngles.y, -Rotation.z);
         OBJ.transform.localScale = new Vector3(Scale, Scale, OBJ.transform.localScale.z);
 
-       // Color = LHand.transform.position.x;
+        Color = map(LHand.transform.position.y, 0.3f, 0.7f, 0f, 1);
+
         Scale = map(RHand.transform.position.z, -0.3f, 0.3f, 0.2f, 5);
 
         //Scale = map(RHand.transform.position.z, -0.3, 0.3, 3, 12);
