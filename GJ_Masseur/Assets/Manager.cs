@@ -13,6 +13,7 @@ public class Manager : MonoBehaviour
     public GameObject ParticulesFin;
     public Animator AC_Timer;
     public GameObject GO_Sphere;
+
     public GameObject PP;
     public Animator AC_Next;
     public Animator AC_Kinect;
@@ -113,6 +114,7 @@ public class Manager : MonoBehaviour
             S_LeapControl.OBJ = Empty;
             Phase = "FINISH";
             Started = false;
+            PP.GetComponent<PostEffect>().effect.SetFloat("_mvt", 1f);
         }
 
 
