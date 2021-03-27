@@ -554,6 +554,7 @@ GameObject:
   m_Component:
   - component: {fileID: 592059047}
   - component: {fileID: 592059048}
+  - component: {fileID: 592059049}
   m_Layer: 0
   m_Name: '[UI]'
   m_TagString: Untagged
@@ -592,6 +593,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   S_Manager: {fileID: 1304355677}
   m_textMeshPro: {fileID: 618378343}
+--- !u!95 &592059049
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592059046}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5e1125cf584ca7d45a4be3d54dd0b024, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &618378343 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 11400000, guid: a6e39ced0ea046bcb636c3f0b2e2a745,
@@ -3483,6 +3503,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: '[KINECT]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5394457004659967570, guid: 8276176da4f78614c875e9a07b6a6637,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8277696098385586298, guid: 8276176da4f78614c875e9a07b6a6637,
         type: 3}
