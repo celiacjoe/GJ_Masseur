@@ -10,7 +10,10 @@ public class Manager : MonoBehaviour
     public string Phase;
     public float Duration;
 
+    public GameObject GO_Sphere;
+    public GameObject PP;
     public Animator AC_Next;
+    public Animator AC_Kinect;
     public GameObject Empty;
     public GameObject LayerBase;
     public GameObject Layer01;
@@ -18,6 +21,7 @@ public class Manager : MonoBehaviour
     public GameObject Layer03;
     public GameObject Layer04;
     public GameObject Layer05;
+    
 
     public detec S_Detec;
     public LEAP_ControlSender S_LeapControl;
@@ -44,18 +48,21 @@ public class Manager : MonoBehaviour
 
         if (Input.GetKeyDown("space"))
         {
-
+            State = 0;
             Started = true;
         }
 
         if (Started == true)
         {
             Timer += Time.deltaTime;
+            PP.GetComponent<PostEffect>().effect.SetFloat("_flash", GO_Sphere.transform.position.x);
+            //PP.effect.SetFloat("_flash", 1f);
         }
 
         if (Timer > Duration)
         {
             AC_Next.Play("AN_ApparitionInfo");
+            AC_Kinect.SetTrigger("T_Flash");
             State++;
             Timer = 0;
         }
@@ -88,22 +95,21 @@ public class Manager : MonoBehaviour
         }
         else if (State == 4)
         {
+            S_Detec._img4 = 0.6f;
             S_LeapControl.OBJ = Layer04;
             Layer04.SetActive(true);
             Phase = "PHASE 4 OK";
         }
         else if (State == 5)
         {
-            S_LeapControl.OBJ = Empty;
-           // Layer04.SetActive(true);
-            Phase = "Last";
-            Started = false;
-        }
-        else if (State == 5)
-        {
+
+            AC_Kinect.SetBool("Finish", true);
+            //AC_Kinect.Play("AN_Focus");
             S_LeapControl.OBJ = Empty;
             Phase = "FINISH";
+            Started = false;
         }
+
 
 
             if (Input.GetKeyDown("r"))
