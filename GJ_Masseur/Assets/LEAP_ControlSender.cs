@@ -50,7 +50,7 @@ public class LEAP_ControlSender : MonoBehaviour
         OBJ.transform.eulerAngles = new Vector3(OBJ.transform.rotation.eulerAngles.x, OBJ.transform.rotation.eulerAngles.y, -Rotation.z);
         OBJ.transform.localScale = new Vector3(Scale, Scale, OBJ.transform.localScale.z);
 
-        Scale = map(RHand.transform.position.z, -0.3f, 0.3f, 0.2f, 5);
+        Scale = map(RHand.transform.position.z, -0.3f, 0.3f, 0.2f, 7);
 
         //Scale = map(RHand.transform.position.z, -0.3, 0.3, 3, 12);
         //NormalizedValue.y = map(Value.y, Y_MinMaxValue.x, Y_MinMaxValue.y, 0, 1);
