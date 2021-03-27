@@ -3,11 +3,15 @@
 Texture2D<float4> reader; 
 Texture2D<float4> reader2;
 RWTexture2D<float4> writer;
+RWTexture2D<float4> writer2;
 SamplerState _LinearClamp;
 float _time;
 float _img1;
 float _img2;
 float _img3;
+float _img4;
+float _img5;
+float _img6;
 float _s1;
 float _s2;
 float _s3;
@@ -39,12 +43,13 @@ void CSMain (uint2 id : SV_DispatchThreadID)
 		}
 	d0 /= 70.;
 	d0 = clamp(d0, 0., 1.);
-	float d1 = smoothstep(_s1, _s2,d0 )*m1;
-	//float d1 = smoothstep(0.1, 0.05, distance(uv + float2(0., sin(uv.x * 50. + _time) * 0.05), float2(cos(_time), sin(_time)) * 0.25 + 0.5));
+	//float d1 = smoothstep(_s1, _s2,d0 )*m1;
+	float d1 = smoothstep(0.1, 0.05, distance(uv + float2(0., sin(uv.x * 50. + _time) * 0.05), float2(cos(_time), sin(_time)) * 0.25 + 0.5));
 	float4 d2 = reader.SampleLevel(_LinearClamp, uv + 0.5 / res, 0);
-	float d3 = lerp(d1, d2.y, step(0.5, _img1));
-	float d4 = lerp(d1, d2.z, step(0.5, _img2));
-	float d5 = lerp(d1, d2.a, step(0.5, _img3));
-	writer[id]=float4(d1,d3,d4,d5);
-    
+	float d3 = lerp(d1, d2.x, step(0.5, _img1));
+	float d4 = lerp(d1, d2.y, step(0.5, _img2));
+	float d5 = lerp(d1, d2.z, step(0.5, _img3));
+	float d6 = lerp(d1, d2.a, step(0.5, _img4));
+	writer[id]=float4(d3,d4,d5,d6);
+	writer2[id] = float4(d1, d1, d1,1.);
 }

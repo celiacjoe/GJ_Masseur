@@ -2576,6 +2576,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1271946515}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1286933409 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8277696098838434060, guid: 8276176da4f78614c875e9a07b6a6637,
+    type: 3}
+  m_PrefabInstance: {fileID: 1933933392}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1304355676
 GameObject:
   m_ObjectHideFlags: 0
@@ -3485,12 +3491,12 @@ PrefabInstance:
     - target: {fileID: 8277696098899967077, guid: 8276176da4f78614c875e9a07b6a6637,
         type: 3}
       propertyPath: _s1
-      value: 0.322
+      value: 0.311
       objectReference: {fileID: 0}
     - target: {fileID: 8277696098899967077, guid: 8276176da4f78614c875e9a07b6a6637,
         type: 3}
       propertyPath: _s2
-      value: 0.413
+      value: 0.478
       objectReference: {fileID: 0}
     - target: {fileID: 8277696098899967077, guid: 8276176da4f78614c875e9a07b6a6637,
         type: 3}
@@ -3510,8 +3516,13 @@ PrefabInstance:
     - target: {fileID: 8277696098899967077, guid: 8276176da4f78614c875e9a07b6a6637,
         type: 3}
       propertyPath: _blur
-      value: 0.094
+      value: 0.178
       objectReference: {fileID: 0}
+    - target: {fileID: 8277696098899967077, guid: 8276176da4f78614c875e9a07b6a6637,
+        type: 3}
+      propertyPath: DepthSourceManager
+      value: 
+      objectReference: {fileID: 1286933409}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8276176da4f78614c875e9a07b6a6637, type: 3}
 --- !u!1 &1962472530

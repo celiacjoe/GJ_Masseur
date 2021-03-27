@@ -6,12 +6,13 @@ public class detec : MonoBehaviour
     public ComputeShader compute_shader;
     RenderTexture A;
     RenderTexture B;
+    RenderTexture C;
     //public Texture C;
     //public GameObject decor;
     public GameObject img1;
     public GameObject img2;
     public GameObject img3;
-
+    public GameObject img4;
     public Material material;
     int handle_main;
     [Range(0, 1)]
@@ -20,6 +21,8 @@ public class detec : MonoBehaviour
     public float _img2;
     [Range(0, 1)]
     public float _img3;
+    [Range(0, 1)]
+    public float _img4;
     [Range(0, 1)]
     public float _s1;
     [Range(0, 1)]
@@ -74,12 +77,10 @@ public class detec : MonoBehaviour
         B = new RenderTexture(1024,  1024, 0);
         B.enableRandomWrite = true;
         B.Create();
-        
-        /*C = new RenderTexture(512, 424, 0);
+        C = new RenderTexture(1024, 1024, 0);
         C.enableRandomWrite = true;
-        C.Create();     */
-        handle_main = compute_shader.FindKernel("CSMain");    
-
+        C.Create();
+        handle_main = compute_shader.FindKernel("CSMain");
     }
     void OnGUI()
     {
@@ -111,6 +112,7 @@ public class detec : MonoBehaviour
         compute_shader.SetFloat("_img1", _img1);
         compute_shader.SetFloat("_img2", _img2);
         compute_shader.SetFloat("_img3", _img3);
+        compute_shader.SetFloat("_img4", _img4);
         compute_shader.SetFloat("_s1", _s1);
         compute_shader.SetFloat("_s2", _s2);
         compute_shader.SetFloat("_s3", _s3);
@@ -123,14 +125,16 @@ public class detec : MonoBehaviour
         compute_shader.SetFloat("_ry2", _ry2);
         compute_shader.SetFloat("_blur", _blur);
         compute_shader.SetTexture(handle_main, "writer", B);
+        compute_shader.SetTexture(handle_main, "writer2", C);
         compute_shader.Dispatch(handle_main, B.width / 8, B.height / 8, 1);
         compute_shader.SetTexture(handle_main, "reader", B);
         compute_shader.SetTexture(handle_main, "writer", A);
         compute_shader.Dispatch(handle_main, B.width / 8, B.height / 8, 1);
-        material.SetTexture("_MainTex", B);
+        material.SetTexture("_MainTex", C);
         img1.GetComponent<Renderer>().material.mainTexture = B;
         img2.GetComponent<Renderer>().material.mainTexture = B;
-        img3.GetComponent<Renderer>().material.mainTexture = B;     
+        img3.GetComponent<Renderer>().material.mainTexture = B;
+        img4.GetComponent<Renderer>().material.mainTexture = B;
         //decor.GetComponent<Renderer>().material.SetTexture("_sec", texture);
     }
     void updateTexture()
