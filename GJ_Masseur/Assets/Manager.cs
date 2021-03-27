@@ -10,15 +10,20 @@ public class Manager : MonoBehaviour
     public string Phase;
     public float Duration;
 
+    public GameObject ColorChange;
+    public Shader ShaderColor;
+    public Material MatColor;
     public GameObject Empty;
     public GameObject Layer01;
     public GameObject Layer02;
     public GameObject Layer03;
     public GameObject Layer04;
+    public GameObject Layer05;
 
     public detec S_Detec;
     public LEAP_ControlSender S_LeapControl;
 
+    Renderer rend;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,29 +34,40 @@ public class Manager : MonoBehaviour
         Layer02.SetActive(false);
         Layer03.SetActive(false);
         Layer04.SetActive(false);
+
+        ColorChange.GetComponent<Renderer>().material.shader = Shader.Find("Color");
     }
 
     // Update is called once per frame
     void Update()
     {
+        ColorChange.GetComponent<Renderer>().material.SetFloat("_WhiteToColor", S_LeapControl.Color);
+
         if (Input.GetKeyDown("space"))
         {
+
             Started = true;
         }
 
         if (Started == true)
         {
-            Timer += Time.deltaTime;
+            Timer -= Time.deltaTime;
         }
 
-        if (Timer > Duration)
+        if (Timer < Duration)
         {
             State++;
             Timer = 0;
         }
 
-        if (State == 1)
+        if (State == 0)
         {
+            ColorChange = Layer01;
+
+        }
+        else if (State == 1)
+        {
+            ColorChange = Layer02;
             Phase = "PHASE 1 OK";
             S_Detec._img1 = 0.6f;
             Layer01.SetActive(true);
@@ -60,6 +76,7 @@ public class Manager : MonoBehaviour
         }
         else if (State == 2)
         {
+            ColorChange = Layer03;
             S_Detec._img2 = 0.6f;
             Layer02.SetActive(true);
             S_LeapControl.OBJ = Layer02;
@@ -67,6 +84,7 @@ public class Manager : MonoBehaviour
         }
         else if (State == 3)
         {
+            ColorChange = Layer04;
             S_Detec._img3 = 0.6f;
             S_LeapControl.OBJ = Layer03;
             Layer03.SetActive(true);
@@ -74,6 +92,7 @@ public class Manager : MonoBehaviour
         }
         else if (State == 4)
         {
+            ColorChange = Layer05;
             S_LeapControl.OBJ = Layer04;
             Layer04.SetActive(true);
             Phase = "PHASE 4 OK";
