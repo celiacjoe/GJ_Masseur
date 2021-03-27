@@ -5,6 +5,7 @@ using TMPro;
 
 public class UI_Display : MonoBehaviour
 {
+    public Voice S_Voice;
     public Manager S_Manager;
     public TextMeshPro Counter;
     public TextMeshPro TextPhrase;
@@ -66,6 +67,7 @@ public class UI_Display : MonoBehaviour
 
         if (S_Manager.Started == true)
         {
+            TextPhrase.SetText("Draw a " + S_Voice.word + " with your body!");
             AC.SetTrigger("Launch");
             AC.SetBool("PlayPhrase", true);
         }

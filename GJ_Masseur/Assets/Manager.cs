@@ -10,8 +10,10 @@ public class Manager : MonoBehaviour
     public string Phase;
     public float Duration;
 
+    public GameObject ParticulesFin;
     public Animator AC_Timer;
     public GameObject GO_Sphere;
+
     public GameObject PP;
     public Animator AC_Next;
     public Animator AC_Kinect;
@@ -31,7 +33,7 @@ public class Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        ParticulesFin.SetActive(false);
         Started = false;
         State = 0;
         Phase = "zero";
@@ -105,12 +107,14 @@ public class Manager : MonoBehaviour
         }
         else if (State == 5)
         {
+            ParticulesFin.SetActive(true);
             AC_Timer.SetBool("TimerPlay", false);
             AC_Kinect.SetBool("Finish", true);
             //AC_Kinect.Play("AN_Focus");
             S_LeapControl.OBJ = Empty;
             Phase = "FINISH";
             Started = false;
+            PP.GetComponent<PostEffect>().effect.SetFloat("_mvt", 1f);
         }
 
 
