@@ -3412,7 +3412,7 @@ MonoBehaviour:
   Layer02: {fileID: 1803559851}
   Layer03: {fileID: 31533308}
   Layer04: {fileID: 1018282212}
-  Layer05: {fileID: 0}
+  Layer05: {fileID: 1018282212}
   S_Detec: {fileID: 1849830675}
   S_LeapControl: {fileID: 903613384}
 --- !u!4 &1304355678
@@ -4600,6 +4600,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3224244845347518455, guid: aa0f60179f99e21469dcb948268287e9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6800040868801426501, guid: aa0f60179f99e21469dcb948268287e9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4638,7 +4643,7 @@ PrefabInstance:
     - target: {fileID: 6800040868801426511, guid: aa0f60179f99e21469dcb948268287e9,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6800040869294858323, guid: aa0f60179f99e21469dcb948268287e9,
         type: 3}

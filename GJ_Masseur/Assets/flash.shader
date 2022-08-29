@@ -3,8 +3,14 @@
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+	    _noise("noise", 2D) = "white" {}
+		_bnoise("bnoise", 2D) = "white" {}
         _flash("_flash", Range(0,1)) = 0
-            _mvt("_mvt", Range(0,1)) = 0
+        _mvt("_mvt", Range(0,1)) = 0
+			_f1("_f1", Range(0,1)) = 0
+			_f2("_f2", Range(0,1)) = 0
+			_f3("_f3", Range(0,1)) = 0
+			_f4("_f4", Range(0,1)) = 0
     }
     SubShader
     {
@@ -31,8 +37,14 @@
             };
 
             sampler2D _MainTex;
+			sampler2D _noise;
+			sampler2D _bnoise;
             float4 _MainTex_ST;
             float _flash;
+			float _f1;
+			float _f2;
+			float _f3;
+			float _f4;
             float _mvt;
             v2f vert (appdata v)
             {
@@ -42,6 +54,8 @@
                 return o;
             }
             float2x2 rot(float t) { float c = cos(t); float s = sin(t); return float2x2(c, -s, s, c); }
+			float hs(float2 uv,float t) { return frac(sin(dot(uv, float2(45.95, 78.14)))*7845.236+t); }
+			float rd(float uv) { return frac(sin(dot(floor(uv*80.), 45.236))*7845.236 ); }
             fixed4 frag (v2f i) : SV_Target
             {
                 // sample the texture
@@ -63,11 +77,20 @@
             uv.y += sin(uv.x * 10. + _Time.x*50.)*0.1*_mvt;
             float2 uv2 = (uv - 0.5) * 2.;
             uv2 = mul(uv2, rot(sin(_Time.x * 30.) * _mvt*0.05) );
+			float2 un = i.uv * float2(1.78, 1.);
+			float bt = rd(_Time.x);
+			un = mul(un, rot(bt*6.));
+			un += float2(rd(_Time.x+47.42), rd(_Time.x+457.23));
             float4 c = tex2D(_MainTex, uv2*0.5+0.5);
             float3 c2 = pow(clamp(c - t1 * 0.1, 0., 1.), lerp(1., 20., smoothstep(0.2, 0.4, e)));
             float3 r1 = lerp(lerp(lerp(lerp(c2, 1. - c2, t1), c2, t2), 1. - c2, t3), c.xyz, t4);
-            return float4(r1, 1.);
-                //return col;
+			float tr = lerp(tex2D(_noise, un).x, lerp(tex2D(_noise, un).z, tex2D(_noise, un).y,step(0.5,rd(_Time.x+475.23 ))),step(0.5,rd(_Time.x+956.)) );
+			float h = tex2D(_bnoise, un*5.).x;
+			float h2 = hs(i.uv, bt + _Time.x);
+			float3 br = smoothstep(0.,1.,pow(h*_f1, lerp(10.*_f2, 200.*lerp(0.2,0.7, tex2D(_bnoise, float2(_Time.x,0.)).x), pow(tr, _f4*5.))))*pow(tex2D(_noise, un).xyz, 0.2);
+			float3 r2 = lerp(r1, 1. - r1, br);
+            return float4(r2, 1.);
+            
             }
             ENDCG
         }

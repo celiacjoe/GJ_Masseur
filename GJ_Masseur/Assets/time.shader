@@ -46,15 +46,18 @@
                 UNITY_TRANSFER_FOG(o,o.vertex);
                 return o;
             }
-
+			float2x2 rot(float t) { float c = cos(t); float s = sin(t); return float2x2(c, -s, s, c); }
             fixed4 frag (v2f i) : SV_Target
             {
                 
                 fixed4 col = tex2D(_MainTex, i.uv);
+			float3 co = clamp(3.*abs(1. - 2.*frac(_Time.x*40. + float3(0., -1. / 3., 1. / 3.))) - 1., 0., 1.);
 				float m = smoothstep(0.5, 0.49, distance(i.uv, float2(0.5, 0.5)));
 				float2 uc = (i.uv - 0.5);
-				float m2 = step(atan2(uc.x, uc.y),3.14*(_timer-0.5)*2.);
-                return float4(1.,0.,0.,m2*m);
+				uc = mul(uc, rot(smoothstep(0.,1.,_timer)*-6.28));
+				float tm = 3.2*(_timer*0.5 );
+				float m2 = smoothstep(tm,tm-0.5,1.-((atan2(uc.x, uc.y)/3.14)*0.5+0.5));
+                return float4(co,m2*m);
             }
             ENDCG
         }
