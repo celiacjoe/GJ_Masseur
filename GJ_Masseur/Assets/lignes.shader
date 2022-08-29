@@ -67,7 +67,7 @@
             fixed4 frag(v2f i) : SV_Target
             {
                 //float3 col = clamp( 3.*abs(1.-2.*frac(_Time.x*40.+float3(0.,-1./3.,1./3.)))-1.,0.,1.);
-				float3 col = tex2D(_grad,float2(_Time.x*60.,0.)).xyz;
+				float3 col = tex2D(_grad,float2(_Time.x*80.,0.)).xyz;
                 float t = tex2D(_MainTex, float2(0.,i.uv.y*0.3+_Time.x*10.)).x-0.5;
                 float t2 = tex2D(_MainTex, float2(0.3, i.uv.y * 0.3 - _Time.x * 10.)).x-0.5;
                 float t3 = tex2D(_MainTex, float2(0.6,  _Time.x * 10.)).x-0.5;
