@@ -56,6 +56,10 @@
             float2x2 rot(float t) { float c = cos(t); float s = sin(t); return float2x2(c, -s, s, c); }
 			float hs(float2 uv,float t) { return frac(sin(dot(uv, float2(45.95, 78.14)))*7845.236+t); }
 			float rd(float uv) { return frac(sin(dot(floor(uv*80.), 45.236))*7845.236 ); }
+			float tt(float2 uv){
+				float3 ta = tex2D(_MainTex, uv).xyz;
+				return max(ta.x, max(ta.y, ta.z));
+			}
             fixed4 frag (v2f i) : SV_Target
             {
                 // sample the texture
@@ -89,6 +93,14 @@
 			float h2 = hs(i.uv, bt + _Time.x);
 			float3 br = smoothstep(0.,1.,pow(h*_f1, lerp(10.*_f2, 200.*lerp(0.2,0.7, tex2D(_bnoise, float2(_Time.x,0.)).x), pow(tr, _f4*5.))))*pow(tex2D(_noise, un).xyz, 0.2);
 			float3 r2 = lerp(r1, 1. - r1, br);
+			/*float b = sqrt(128.);
+			float d0 = 0.;
+			for (float k = -0.5*b; k <= 0.5*b; k += 1.)
+				for (float j = -0.5 * b; j <= 0.5 * b; j += 1.) {
+					d0 += tt(i.uv + float2(k, j)*0.01*_f3 );
+				}
+			d0 /= 128.;*/
+
             return float4(r2, 1.);
             
             }

@@ -1,10 +1,13 @@
 Shader "TextMeshPro/Distance Field" {
 
 Properties {
+	
+
 	_FaceTex			("Face Texture", 2D) = "white" {}
 	_FaceUVSpeedX		("Face UV Speed X", Range(-5, 5)) = 0.0
 	_FaceUVSpeedY		("Face UV Speed Y", Range(-5, 5)) = 0.0
 	[HDR]_FaceColor		("Face Color", Color) = (1,1,1,1)
+		
 	_FaceDilate			("Face Dilate", Range(-1,1)) = 0
 
 	[HDR]_OutlineColor	("Outline Color", Color) = (0,0,0,1)
@@ -82,6 +85,7 @@ Properties {
 
 	_CullMode			("Cull Mode", Float) = 0
 	_ColorMask			("Color Mask", Float) = 15
+		
 }
 
 SubShader {
@@ -158,6 +162,12 @@ SubShader {
 		float4 _FaceTex_ST;
 		float4 _OutlineTex_ST;
 
+		float ov(float base, float blend) {
+			return base < 0.5 ? (2.0*base*blend) : (1.0 - 2.0*(1.0 - base)*(1.0 - blend));
+		}
+		float rd(float uv) { return frac(sin(dot(floor(uv*80.), 45.236))*7845.236); }
+		float2x2 rot(float t) { float c = cos(t); float s = sin(t); return float2x2(c, -s, s, c); }
+
 		pixel_t VertShader(vertex_t input)
 		{
 			pixel_t output;
@@ -180,9 +190,9 @@ SubShader {
 			float scale = rsqrt(dot(pixelSize, pixelSize));
 			scale *= abs(input.texcoord1.y) * _GradientScale * (_Sharpness + 1);
 			if (UNITY_MATRIX_P[3][3] == 0) scale = lerp(abs(scale) * (1 - _PerspectiveFilter), scale, abs(dot(UnityObjectToWorldNormal(input.normal.xyz), normalize(WorldSpaceViewDir(vert)))));
-
+			float bt = (rd(_Time.x*5.+123.)-0.5)*0.2;
 			float weight = lerp(_WeightNormal, _WeightBold, bold) / 4.0;
-			weight = (weight + _FaceDilate) * _ScaleRatioA * 0.5;
+			weight = (weight +bt ) * _ScaleRatioA * 0.5;
 
 			float bias =(.5 - weight) + (.5 / scale);
 
@@ -253,59 +263,19 @@ SubShader {
 
 			half4 faceColor = _FaceColor;
 			half4 outlineColor = _OutlineColor;
+			float2 un = input.textures.xy*0.5;
+			float bt = rd(_Time.x);
+			un = mul(un, rot(bt*6.));
+			un += float2(rd(_Time.x + 47.42), rd(_Time.x + 457.23));
+			float tr = smoothstep(0.1, 0.85, lerp(tex2D(_FaceTex, un).x, lerp(tex2D(_FaceTex, un).z, tex2D(_FaceTex, un).y, step(0.5, rd(_Time.x + 475.23))), step(0.5, rd(_Time.x + 956.))));
 
-			faceColor.rgb *= input.color.rgb;
-
-			faceColor *= tex2D(_FaceTex, input.textures.xy + float2(_FaceUVSpeedX, _FaceUVSpeedY) * _Time.y);
+			//faceColor *= tex2D(_FaceTex, input.textures.xy + float2(_FaceUVSpeedX, _FaceUVSpeedY) * _Time.y);
 			outlineColor *= tex2D(_OutlineTex, input.textures.zw + float2(_OutlineUVSpeedX, _OutlineUVSpeedY) * _Time.y);
 
 			faceColor = GetColor(sd, faceColor, outlineColor, outline, softness);
 
-		#if BEVEL_ON
-			float3 dxy = float3(0.5 / _TextureWidth, 0.5 / _TextureHeight, 0);
-			float3 n = GetSurfaceNormal(input.atlas, weight, dxy);
-
-			float3 bump = UnpackNormal(tex2D(_BumpMap, input.textures.xy + float2(_FaceUVSpeedX, _FaceUVSpeedY) * _Time.y)).xyz;
-			bump *= lerp(_BumpFace, _BumpOutline, saturate(sd + outline * 0.5));
-			n = normalize(n- bump);
-
-			float3 light = normalize(float3(sin(_LightAngle), cos(_LightAngle), -1.0));
-
-			float3 col = GetSpecular(n, light);
-			faceColor.rgb += col*faceColor.a;
-			faceColor.rgb *= 1-(dot(n, light)*_Diffuse);
-			faceColor.rgb *= lerp(_Ambient, 1, n.z*n.z);
-
-			fixed4 reflcol = texCUBE(_Cube, reflect(input.viewDir, -n));
-			faceColor.rgb += reflcol.rgb * lerp(_ReflectFaceColor.rgb, _ReflectOutlineColor.rgb, saturate(sd + outline * 0.5)) * faceColor.a;
-		#endif
-
-		#if UNDERLAY_ON
-			float d = tex2D(_MainTex, input.texcoord2.xy).a * input.texcoord2.z;
-			faceColor += input.underlayColor * saturate(d - input.texcoord2.w) * (1 - faceColor.a);
-		#endif
-
-		#if UNDERLAY_INNER
-			float d = tex2D(_MainTex, input.texcoord2.xy).a * input.texcoord2.z;
-			faceColor += input.underlayColor * (1 - saturate(d - input.texcoord2.w)) * saturate(1 - sd) * (1 - faceColor.a);
-		#endif
-
-		#if GLOW_ON
-			float4 glowColor = GetGlowColor(sd, scale);
-			faceColor.rgb += glowColor.rgb * glowColor.a;
-		#endif
-
-		// Alternative implementation to UnityGet2DClipping with support for softness.
-		#if UNITY_UI_CLIP_RECT
-			half2 m = saturate((_ClipRect.zw - _ClipRect.xy - abs(input.mask.xy)) * input.mask.zw);
-			faceColor *= m.x * m.y;
-		#endif
-
-		#if UNITY_UI_ALPHACLIP
-			clip(faceColor.a - 0.001);
-		#endif
-
-  		return faceColor * input.color.a;
+	
+  		return smoothstep(0.,1.,ov(faceColor.x, pow(tex2D(_OutlineTex, input.textures.xy*0.3- _Time.x*10.).x, tr*20.)));
 		}
 
 		ENDCG
