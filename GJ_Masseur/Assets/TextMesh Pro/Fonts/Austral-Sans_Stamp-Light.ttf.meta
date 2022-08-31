@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 6e842aca3e8e69f47933922067f092d7
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Austral Sans
+  fontNames:
+  - Austral Sans
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 9f20ee74a98171346b1e761c58a770ce, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
