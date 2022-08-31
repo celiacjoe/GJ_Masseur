@@ -10,7 +10,6 @@ public class S_Manager : MonoBehaviour
     public LEAP_ControlSender S_LeapControl;
     public S_Timer Timer;
     public Animator AC_Kinect;
-    public bool Started;
     public string Phase;
     public int Round;
     public Voice S_Voice;
@@ -95,36 +94,44 @@ public class S_Manager : MonoBehaviour
     }
     public void LaunchGameSession()
     {
-        //S_Voice.LaunchVoice();
+        S_Voice.LaunchVoice();
         Text.InfoJ1();
+        //Text.Round();
         S_Voice.VoiceStarted = true;
         Timer.StartTimerJ1();
         Text.ConsigneOnGame();
+        Round++;
 
         Debug.Log("InfoJ1IslAUNCHED");
     }
     public void NextRound()
     {
-        Timer.StartTimerJ1();
-        if (Round < 5)
+        if (Round < 4)
         {
+            Timer.StartTimerJ1();
             Round++;
         }
         else
         {
             EndOfTheGame();
-
         }
     }
 
     public void EndOfTheGame()
     {
-        Phase = "Finished";
         Text.TextEndGame();
-        AC_Transition.SetBool("GameIsRunning",false);
+        Timer.PlayEndTimer();
         S_Voice.VoiceStarted = false;
+        S_Voice.VoiceEnd();
+        Phase = "Finished";
+        Round = 0;
+        AC_Transition.SetBool("GameIsRunning",false);// ANIM END
         S_LeapControl.OBJ = LayerEmpty;
-
+    }
+    public void Loop() //// lAUNCHED AT THE end of END OF THE GAME 
+    {
+        AC_Transition.SetTrigger("PlayBackMenu");
+        Phase = "Someone";
     }
 
 

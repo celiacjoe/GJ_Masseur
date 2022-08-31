@@ -35,4 +35,9 @@ public class Voice : MonoBehaviour
     {
         WindowsVoice.speak("Draw me a " + word);
     }
+
+    public void VoiceEnd()
+    {
+        WindowsVoice.speak("Is the best " + word +"I Never seen !");
+    }
 }

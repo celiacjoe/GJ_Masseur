@@ -32,45 +32,13 @@ public class S_Text : MonoBehaviour
     void Update()
     {
 
-        if (Manager.Phase != "Start")
+      /*  if (Manager.Phase != "Start")
         {
+            T_J1.SetText("");
+            T_J2.SetText("");
+            T_Counter.SetText("");
+        }*/
 
-        }
-        //Counter.SetText(label, m_frame % 1000);
-        // m_frame = S_Manager.Timer;
-
-        /*
-                if (S_Manager.Started == true)
-                {
-                    TextPhrase.SetText("Draw a " + S_Voice.word + " with your body!");
-                    AC.SetTrigger("Launch");
-                    AC.SetBool("PlayPhrase", true);
-                }
-                if (S_Manager.State == 1)
-                {
-                    TextSession.SetText("Place the shape");
-                }
-                else if (S_Manager.State == 2)
-                {
-                    TextSession.SetText("Compose with the second shape");
-                    //  AC.SetTrigger("NextSession");
-                }
-                else if (S_Manager.State == 3)
-                {
-                    TextSession.SetText("Compose");
-                    //  AC.SetTrigger("NextSession");
-                }
-                else if (S_Manager.State == 4)
-                {
-                    TextSession.SetText("Compose with the last shape");
-                    // AC.SetTrigger("NextSession");
-                }
-                else if (S_Manager.State == 5)
-                {
-                    TextSession.SetText("IT'S FINISH");
-                    //m_frame += 1 * Time.deltaTime;
-                }
-        */
     }
     public void ConsigneOnGame()
     {
@@ -84,64 +52,51 @@ public class S_Text : MonoBehaviour
     {
         if (Manager.Round == 0)
         {
-            T_J1.SetText("T1 J1 use your body to create");
-        }
-        else if (Manager.Round == 1)
+            T_J1.SetText("J1 use your body to create");
+        } else if (Manager.Round == 1)
         {
-            T_J1.SetText("T2 J1 it's your turn !");
-        }
-        else if (Manager.Round == 2)
+            T_J1.SetText("J1 it's your turn !");
+        }else if (Manager.Round == 2)
         {
-            T_J1.SetText("T3 J1...");
-        }
-        else if (Manager.Round == 3)
+            T_J1.SetText("J1...");
+        }else if (Manager.Round == 3)
         {
-            T_J1.SetText("Turn4 it's your last shape!");
+            T_J1.SetText("J1 it's your last shape!");
         }
-
-
         AC_Text.SetTrigger("ApparitionTextJ1");
-        Debug.Log("FONCTION launch J1");
+
     }
     public void InfoJ2()
     {
-        if (Manager.Round == 0)
+        Round();
+        if (Manager.Round == 1)
         {
-            T_J2.SetText("T1 J2 Compose with the shape");
-            Debug.Log("FONCTION launch J2");
-        }
-        else if (Manager.Round == 1)
+            T_J2.SetText("J2 Compose with the shape");
+        }else if (Manager.Round == 2)
         {
-            T_J2.SetText("T2Assemble les formes");
-        }
-        else if (Manager.Round == 2)
+            T_J2.SetText("J2 Assemble les formes");
+        }else if (Manager.Round == 3)
         {
-            T_J2.SetText("T3 J2!");
-        }
-        else if (Manager.Round == 3)
+            T_J2.SetText("J2!");
+        }else if (Manager.Round == 4)
         {
-            T_J2.SetText("T4Compose with the last shape!");
+            T_J2.SetText("J2 Compose with the last shape!");
         }
-
-
         AC_Text.SetTrigger("ApparitionTextJ2");
     }
 
     public void Round()
     {
-        if (Manager.Round == 0)
+        if (Manager.Round == 1)
         {
             T_Counter.SetText("I");
-        }
-        else if (Manager.Round == 1)
+        }else if (Manager.Round == 2)
         {
             T_Counter.SetText("I l");
-        }
-        else if (Manager.Round == 2)
+        }else if (Manager.Round == 3)
         {
             T_Counter.SetText("I l I");
-        }
-        else if (Manager.Round == 3)
+        }else if (Manager.Round == 4)
         {
             T_Counter.SetText("I l I l");
         }
@@ -152,6 +107,10 @@ public class S_Text : MonoBehaviour
     {
         AC_Text.GetBool("GameIsRunning");
         AC_Text.SetBool("GameIsRunning", false) ;
+        T_J1.SetText("");
+        T_J2.SetText("");
+        T_Counter.SetText("");
+        T_Consigne.SetText("");
     }
 
 
