@@ -7,6 +7,7 @@ public class detec : MonoBehaviour
     RenderTexture A;
     RenderTexture B;
     RenderTexture C;
+    RenderTexture D;
     //public Texture C;
     //public GameObject decor;
     public GameObject img1;
@@ -45,10 +46,17 @@ public class detec : MonoBehaviour
     public float _ry2;
     [Range(0, 1)]
     public float _blur;
+    [Range(0, 1)]
+    public float _blur2;
+    [Range(0, 1)]
+    public float _blur3;
+    [Range(0, 1)]
+    public float _blur4;
     public GameObject DepthSourceManager;
     private KinectSensor _Sensor;
     private CoordinateMapper _Mapper;
     Texture2D texture;
+    //public Material mat;
     //public Material mat;
     byte[] depthBitmapBuffer;
     public float deb = 1.0f;
@@ -80,6 +88,9 @@ public class detec : MonoBehaviour
         C = new RenderTexture(1024, 1024, 0);
         C.enableRandomWrite = true;
         C.Create();
+        D = new RenderTexture(1024, 1024, 0);
+        D.enableRandomWrite = true;
+        D.Create();
         handle_main = compute_shader.FindKernel("CSMain");
     }
     void OnGUI()
@@ -108,6 +119,7 @@ public class detec : MonoBehaviour
         updateTexture();
         compute_shader.SetTexture(handle_main, "reader", A);
         compute_shader.SetTexture(handle_main, "reader2", texture);
+        compute_shader.SetTexture(handle_main, "reader3", D);
         compute_shader.SetFloat("_time", Time.time);
         compute_shader.SetFloat("_img1", _img1);
         compute_shader.SetFloat("_img2", _img2);
@@ -124,11 +136,17 @@ public class detec : MonoBehaviour
         compute_shader.SetFloat("_ry1", _ry1);
         compute_shader.SetFloat("_ry2", _ry2);
         compute_shader.SetFloat("_blur", _blur);
+        compute_shader.SetFloat("_blur2", _blur2);
+        compute_shader.SetFloat("_blur3", _blur3);
+        compute_shader.SetFloat("_blur4", _blur4);
         compute_shader.SetTexture(handle_main, "writer", B);
         compute_shader.SetTexture(handle_main, "writer2", C);
         compute_shader.Dispatch(handle_main, B.width / 8, B.height / 8, 1);
         compute_shader.SetTexture(handle_main, "reader", B);
         compute_shader.SetTexture(handle_main, "writer", A);
+        compute_shader.Dispatch(handle_main, D.width / 8, D.height / 8, 1);
+        compute_shader.SetTexture(handle_main, "reader3", C);
+        compute_shader.SetTexture(handle_main, "writer2", D);
         compute_shader.Dispatch(handle_main, B.width / 8, B.height / 8, 1);
         material.SetTexture("_MainTex", C);
         img1.GetComponent<Renderer>().material.mainTexture = B;
@@ -136,6 +154,10 @@ public class detec : MonoBehaviour
         img3.GetComponent<Renderer>().material.mainTexture = B;
         img4.GetComponent<Renderer>().material.mainTexture = B;
         //decor.GetComponent<Renderer>().material.SetTexture("_sec", texture);
+       /* material.SetFloat("_rx1", _rx1);
+        material.SetFloat("_rx2", _rx2);
+        material.SetFloat("_ry1", _ry1);
+        material.SetFloat("_ry2", _ry2);       */
     }
     void updateTexture()
     {

@@ -2,6 +2,7 @@
 
 Texture2D<float4> reader; 
 Texture2D<float4> reader2;
+Texture2D<float4> reader3;
 RWTexture2D<float4> writer;
 RWTexture2D<float4> writer2;
 SamplerState _LinearClamp;
@@ -23,6 +24,9 @@ float _rx2;
 float _ry1;
 float _ry2;
 float _blur;
+float _blur2;
+float _blur3;
+float _blur4;
 float2 map(float2 value, float2 min1, float2 max1, float2 min2, float2 max2) {
 	return min2 + (value - min1) * (max2 - min2) / (max1 - min1);
 }
@@ -37,11 +41,23 @@ void CSMain (uint2 id : SV_DispatchThreadID)
 	float2 uv2 = map(uv, float2(1., 1.), float2(0., 0.), float2(_rx1, _ry1), float2(_rx2, _ry2));
 	float b = sqrt(64.);
 	float d0 = 0.;
+	float da = 0.;
+	float db = 0.;
+	float dc = 0.;
+	float fb = 0.1*_blur2;
+	float fb2 = 0.1*_blur3;
+	float fb3 = 0.1*_blur4;
 	for(float i = -0.5*b ; i <= 0.5*b; i+=1.)
 		for (float j = -0.5 * b; j <= 0.5 * b; j += 1.) {
 			d0 += reader2.SampleLevel(_LinearClamp, uv2 +float2(i,j)*0.005*_blur+ 0.5 / res, 0).x;
+			da += smoothstep(0.,0.3,reader3.SampleLevel(_LinearClamp, uv + float2(i, j)*fb + 0.5 / res, 0).x);
+			db += reader3.SampleLevel(_LinearClamp, uv + float2(i, j)*fb2 + 0.5 / res, 0).y;
+			dc += reader3.SampleLevel(_LinearClamp, uv + float2(i, j)*fb3 + 0.5 / res, 0).z;
 		}
 	d0 /= 70.;
+	da /= 64.;
+	db /= 64.;
+	dc /= 64.;
 	d0 = clamp(d0, 0., 1.);
 	float d1 = smoothstep(_s1, _s2,d0 )*m1;
 	//float d1 = smoothstep(0.1, 0.05, distance(uv + float2(0., sin(uv.x * 50. + _time) * 0.05), float2(cos(_time), sin(_time)) * 0.25 + 0.5));
@@ -51,5 +67,5 @@ void CSMain (uint2 id : SV_DispatchThreadID)
 	float d5 = lerp(d1, d2.z, step(0.5, _img3));
 	float d6 = lerp(d1, d2.a, step(0.5, _img4));
 	writer[id]=float4(d3,d4,d5,d6);
-	writer2[id] = float4(d1, d1, d1,1.);
+	writer2[id] = float4(d1, da, db,dc);
 }

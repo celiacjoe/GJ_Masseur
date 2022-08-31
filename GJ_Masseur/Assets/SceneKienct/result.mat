@@ -55,12 +55,24 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _bnoise:
+        m_Texture: {fileID: 2800000, guid: 4a2eb4036d6a3dd43bab5e23c25424a7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _grad:
         m_Texture: {fileID: 2800000, guid: bc8fefb184600e8499fd28607783a8d2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _noise:
+        m_Texture: {fileID: 2800000, guid: 6c9c8a6aa49460647be6f0b51a4d6c81, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _noise2:
         m_Texture: {fileID: 2800000, guid: 9f15fab8347760d478ae15e27e25bb4d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _stroke:
+        m_Texture: {fileID: 2800000, guid: fe1860e26f4304746b64a6737af4b132, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -80,7 +92,12 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
-    - _f1: 0.2
+    - _f1: 0
+    - _f2: 0.08
+    - _f3: 0.673
+    - _f4: 0.232
+    - _f5: 0
+    - _f6: 0
     - _img1PosX: 0
     - _img1PosY: -0
     - _img1Rot: 0
@@ -90,6 +107,10 @@ Material:
     - _img3PosX: 0
     - _img3PosY: 0
     - _img3Rot: 0
+    - _rx1: 0.124
+    - _rx2: 0.806
+    - _ry1: 0
+    - _ry2: 0.711
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
