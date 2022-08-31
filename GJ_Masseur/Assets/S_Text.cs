@@ -8,8 +8,8 @@ public class S_Text : MonoBehaviour
     public Voice S_Voice;
     public S_Manager Manager;
 
-    public TextMeshPro TextPhrase;
-    public TextMeshPro TextSession;
+   // public TextMeshPro TextPhrase;
+   // public TextMeshPro TextSession;
     public TextMeshPro T_Consigne;
     public TextMeshPro T_J1;
     public TextMeshPro T_J2;
@@ -31,6 +31,11 @@ public class S_Text : MonoBehaviour
 
     void Update()
     {
+
+        if (Manager.Phase != "Start")
+        {
+
+        }
         //Counter.SetText(label, m_frame % 1000);
         // m_frame = S_Manager.Timer;
 
@@ -77,60 +82,68 @@ public class S_Text : MonoBehaviour
 
     public void InfoJ1()
     {
-        if (Manager.Round == 1)
+        if (Manager.Round == 0)
         {
-            T_J1.SetText("J1 use your body to create");
+            T_J1.SetText("T1 J1 use your body to create");
+        }
+        else if (Manager.Round == 1)
+        {
+            T_J1.SetText("T2 J1 it's your turn !");
         }
         else if (Manager.Round == 2)
         {
-            T_J1.SetText("J1 it's your turn !");
+            T_J1.SetText("T3 J1...");
         }
         else if (Manager.Round == 3)
         {
-            T_J1.SetText("J1...");
-        }
-        else if (Manager.Round == 4)
-        {
-            T_J1.SetText("J1 it's your last shape!");
+            T_J1.SetText("Turn4 it's your last shape!");
         }
 
+
         AC_Text.SetTrigger("ApparitionTextJ1");
+        Debug.Log("FONCTION launch J1");
     }
     public void InfoJ2()
     {
-        if (Manager.Round == 1)
+        if (Manager.Round == 0)
         {
-            T_J2.SetText("J2 Compose with the shape");
+            T_J2.SetText("T1 J2 Compose with the shape");
+            Debug.Log("FONCTION launch J2");
+        }
+        else if (Manager.Round == 1)
+        {
+            T_J2.SetText("T2Assemble les formes");
         }
         else if (Manager.Round == 2)
         {
-            T_J2.SetText("Assemble les formes");
+            T_J2.SetText("T3 J2!");
         }
         else if (Manager.Round == 3)
         {
-            T_J2.SetText("J2!");
+            T_J2.SetText("T4Compose with the last shape!");
         }
-        else if (Manager.Round == 4)
-        {
-            T_J2.SetText("Compose with the last shape!");
-        }
+
 
         AC_Text.SetTrigger("ApparitionTextJ2");
     }
 
     public void Round()
     {
-        if (Manager.Round == 1)
+        if (Manager.Round == 0)
         {
             T_Counter.SetText("I");
         }
-        else if (Manager.Round == 2)
+        else if (Manager.Round == 1)
         {
             T_Counter.SetText("I l");
         }
-        else if (Manager.Round == 3)
+        else if (Manager.Round == 2)
         {
             T_Counter.SetText("I l I");
+        }
+        else if (Manager.Round == 3)
+        {
+            T_Counter.SetText("I l I l");
         }
         AC_Text.SetTrigger("SetCounter");
     }
