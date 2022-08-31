@@ -192,7 +192,7 @@ SubShader {
 			if (UNITY_MATRIX_P[3][3] == 0) scale = lerp(abs(scale) * (1 - _PerspectiveFilter), scale, abs(dot(UnityObjectToWorldNormal(input.normal.xyz), normalize(WorldSpaceViewDir(vert)))));
 			float bt = (rd(_Time.x*5.+123.)-0.5)*0.2;
 			float weight = lerp(_WeightNormal, _WeightBold, bold) / 4.0;
-			weight = (weight +bt ) * _ScaleRatioA * 0.5;
+			weight = (weight +bt* _FaceDilate) * _ScaleRatioA * 0.5;
 
 			float bias =(.5 - weight) + (.5 / scale);
 

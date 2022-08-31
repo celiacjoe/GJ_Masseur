@@ -21,7 +21,7 @@ public class Voice : MonoBehaviour
         if (time >= T)
 
         {
-            WindowsVoice.speak("Draw a " + word);
+            WindowsVoice.speak("come on human ");
         }
         }
 }
