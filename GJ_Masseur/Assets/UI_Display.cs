@@ -92,7 +92,6 @@ public class UI_Display : MonoBehaviour
         }
         else if (S_Manager.State == 5)
         {
-
             TextSession.SetText("IT'S FINISH");
             //m_frame += 1 * Time.deltaTime;
         }
