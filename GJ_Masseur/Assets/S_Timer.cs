@@ -13,16 +13,24 @@ public class S_Timer : MonoBehaviour
     void Start()
     {
        AC_Timer = Timer.GetComponent<Animator>();
+        
     }
 
     void Update()
     {
-        
+        if (Manager.Phase == "Finished")
+        {
+            AC_Timer.GetBool("GameIsRunning");
+            AC_Timer.SetBool("GameIsRunning",false);
+        }
+
     }
 
     public void StartTimerJ1() {
+        AC_Timer.GetBool("GameIsRunning");
+        AC_Timer.SetBool("GameIsRunning", true);
         Text.InfoJ1();
-        Debug.Log("TimerJ1");
+        //Text.Round();
         AC_Timer.SetTrigger("PlayTimerJ1");
 
     }
@@ -30,19 +38,19 @@ public class S_Timer : MonoBehaviour
     public void StartTimerJ2()
     {
         Text.InfoJ2();
-        Debug.Log("TimerJ2");
         AC_Timer.SetTrigger("PlayTimerJ2");
     }
 
-    public void StartTimer()
-    {
-        AC_Timer.SetTrigger("TimerPlay");
-        Debug.Log("Timer General");
-    }
 
    public void EndRound()
-    {
+    {       
         Manager.NextRound();
     }
+
+    public void PlayEndTimer()
+    {
+       AC_Timer.SetTrigger("End");
+    }
+
 
 }
