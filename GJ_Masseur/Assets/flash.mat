@@ -84,7 +84,7 @@ Material:
     - _f2: 0
     - _f3: 0.9
     - _f4: 0.27
-    - _flash: 1
+    - _flash: 0.10432149
     - _mvt: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
