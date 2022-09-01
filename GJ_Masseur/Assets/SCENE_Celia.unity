@@ -439,7 +439,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &31533309
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -574,7 +574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: a6e39ced0ea046bcb636c3f0b2e2a745, type: 3}
       propertyPath: m_text
-      value: "P1 \nUse your silhouette\nto form a shape"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: a6e39ced0ea046bcb636c3f0b2e2a745, type: 3}
       propertyPath: m_fontSize
@@ -612,7 +612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: a6e39ced0ea046bcb636c3f0b2e2a745, type: 3}
       propertyPath: m_HorizontalAlignment
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: a6e39ced0ea046bcb636c3f0b2e2a745, type: 3}
       propertyPath: m_hasFontAssetChanged
@@ -696,7 +696,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22495902, guid: a6e39ced0ea046bcb636c3f0b2e2a745, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1.77
+      value: 2.02
       objectReference: {fileID: 0}
     - target: {fileID: 22495902, guid: a6e39ced0ea046bcb636c3f0b2e2a745, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -927,7 +927,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &127455232
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2191,13 +2191,13 @@ MonoBehaviour:
   S_Detec: {fileID: 8277696099726444341}
   Timer: {fileID: 379942892}
   Manager: {fileID: 1289506659}
-  Presence: {fileID: 0}
   Text: {fileID: 592059050}
   Time: 0
   word: 
   S_LeapControl: {fileID: 903613384}
   GO01: {fileID: 106891941}
   GO02: {fileID: 2016665263}
+  PP: {fileID: 678299830}
 --- !u!95 &379942896
 Animator:
   serializedVersion: 3
@@ -3164,7 +3164,7 @@ MonoBehaviour:
   effect: {fileID: 2100000, guid: d891d33335940a14f97e5d1ec9ff5226, type: 2}
   flash: 0
   mvt: 0
-  audioflash: {fileID: 8277696100243968812}
+  audioflash: {fileID: 0}
 --- !u!224 &707842677 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 22495902, guid: a6e39ced0ea046bcb636c3f0b2e2a745,
@@ -3566,7 +3566,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1018282213
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5807,7 +5807,6 @@ MonoBehaviour:
   Layer03: {fileID: 31533308}
   Layer04: {fileID: 1018282212}
   LayerEmpty: {fileID: 1962472530}
-  Cheker: {fileID: 0}
 --- !u!224 &1290161883 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 22495902, guid: a6e39ced0ea046bcb636c3f0b2e2a745,
@@ -7108,7 +7107,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1803559852
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8249,7 +8248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: a6e39ced0ea046bcb636c3f0b2e2a745, type: 3}
       propertyPath: m_text
-      value: P1 Use your silhouette to form a shape
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: a6e39ced0ea046bcb636c3f0b2e2a745, type: 3}
       propertyPath: m_fontSize
@@ -8291,7 +8290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: a6e39ced0ea046bcb636c3f0b2e2a745, type: 3}
       propertyPath: m_HorizontalAlignment
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: a6e39ced0ea046bcb636c3f0b2e2a745, type: 3}
       propertyPath: m_hasFontAssetChanged
@@ -8375,7 +8374,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22495902, guid: a6e39ced0ea046bcb636c3f0b2e2a745, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -2.26
+      value: -2.58
       objectReference: {fileID: 0}
     - target: {fileID: 22495902, guid: a6e39ced0ea046bcb636c3f0b2e2a745, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -11814,25 +11813,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6e39ced0ea046bcb636c3f0b2e2a745, type: 3}
---- !u!114 &4875355548485238392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4875355548485238394}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a791baea149b07643bdf6873d3496d88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  S_Manager: {fileID: 1304355677}
-  Counter: {fileID: 0}
-  TextPhrase: {fileID: 0}
-  TextSession: {fileID: 2096625865}
-  AC: {fileID: 0}
-  PlayPhrase: 0
-  Info01: Place
 --- !u!4 &4875355548485238393
 Transform:
   m_ObjectHideFlags: 0
@@ -11898,7 +11878,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4875355548485238393}
-  - component: {fileID: 4875355548485238392}
   m_Layer: 0
   m_Name: '[UI] TUTO'
   m_TagString: Untagged

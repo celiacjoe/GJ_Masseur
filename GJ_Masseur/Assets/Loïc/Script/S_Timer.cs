@@ -15,12 +15,14 @@ public class S_Timer : MonoBehaviour
     public LEAP_ControlSender S_LeapControl;
     public GameObject GO01;
     public GameObject GO02;
+    public PostEffect PP;
 
     void Start()
     {
         AC_Timer = Timer.GetComponent<Animator>();
         AC_Timer.GetBool("PlayTimerVoice");
         AC_Timer.SetBool("PlayTimerVoice", false);
+        PP.GetComponent<PostEffect>().effect.SetFloat("_mvt", 0f);
     }
 
     void Update()
@@ -59,6 +61,7 @@ public class S_Timer : MonoBehaviour
 
     public void TimerPresenceFull()
     {
+        PP.GetComponent<PostEffect>().effect.SetFloat("_mvt", 0f);
         Manager.LaunchGameSession();
     }
 
@@ -90,12 +93,11 @@ public class S_Timer : MonoBehaviour
         {
             S_LeapControl.OBJ = Manager.Layer04;
         }
-        // S_LeapControl.OBJ = Layer01;
     }
 
     public void StartTimerVoice()
     {
-        Debug.Log("NEW");
+
         word = WorldGenerator.GetRandomWord();
         AC_Timer.GetBool("PlayTimerVoice");
         AC_Timer.SetBool("PlayTimerVoice", true);
@@ -109,22 +111,6 @@ public class S_Timer : MonoBehaviour
 
     public void EndRound()
     {       
-       /*if(Manager.Round ==1)
-        {
-            S_Detec._img1 = 0.6f;
-        }
-        else if (Manager.Round == 2)
-        {
-            S_Detec._img2 = 0.6f;
-        }
-        else if (Manager.Round == 3)
-        {
-            S_Detec._img3 = 0.6f;
-        }
-        else if (Manager.Round == 4)
-        {
-            S_Detec._img4 = 0.6f;
-        }*/
         Manager.NextRound();
     }
 
@@ -135,6 +121,11 @@ public class S_Timer : MonoBehaviour
        AC_Timer.SetBool("PlayTimerVoice", false);
 
        S_LeapControl.OBJ = Manager.LayerEmpty;
+    }
+
+    public void WavyEffect()//// Launched by animation end
+    {
+        PP.GetComponent<PostEffect>().effect.SetFloat("_mvt", 1f);
     }
 
 
