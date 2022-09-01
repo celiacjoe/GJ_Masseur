@@ -6,6 +6,10 @@
 		_screen("screen", 2D) = "white" {}
 	    _noise("noise", 2D) = "white" {}
 		_bnoise("bnoise", 2D) = "white" {}
+		_cloud("cloud", 2D) = "white" {}
+		_perlin("prelin", 2D) = "white" {}
+		_img("_img", 2D) = "white" {}
+		_grad("grad", 2D) = "white" {}
         _flash("_flash", Range(0,1)) = 0
         _mvt("_mvt", Range(0,1)) = 0
 			_f1("_f1", Range(0,1)) = 0
@@ -41,6 +45,10 @@
 			sampler2D _noise;
 			sampler2D _bnoise;
 			sampler2D _screen;
+			sampler2D _grad;
+			sampler2D _img;
+			sampler2D _cloud;
+			sampler2D _perlin;
             float4 _MainTex_ST;
             float _flash;
 			float _f1;
@@ -61,6 +69,9 @@
 			float tt(float2 uv){
 				float3 ta = tex2D(_MainTex, uv).xyz;
 				return max(ta.x, max(ta.y, ta.z));
+			}
+			float ov(float base, float blend) {
+				return base < 0.5 ? (2.0*base*blend) : (1.0 - 2.0*(1.0 - base)*(1.0 - blend));
 			}
             fixed4 frag (v2f i) : SV_Target
             {
@@ -102,9 +113,21 @@
 					d0 += tt(i.uv + float2(k, j)*0.01*_f3 );
 				}
 			d0 /= 128.;*/
+			float ro = tex2D(_screen, i.uv).x;
+			ro = ov(ro, lerp(0.5, pow(h, tr), 0.4));
 
-            return float4(max(r2,tex2D(_screen,i.uv).x), 1.);
-            
+			float ul = atan2(uc.x-0.25, -uc.y) / 3.14;
+
+			float zo = max(step(0.5, frac(ul*lerp(10., 25., rd(_Time.x*0.1+12.)) + rd(_Time.x*3.+98.56))), step(0.8, rd(_Time.x*0.5+45.)))*smoothstep(0.45, 0.55, tex2D(_cloud, float2(_Time.x*10.+563., _Time.x*0.01)).x);
+			float3 cco = tex2D(_grad, float2(_Time.x*80. + 0.5, 0.)).xyz;
+			float2 m2 = tex2D(_perlin, float2(ul*2., _Time.x*40. + 458.36)).xy*0.5 + smoothstep(0., 1., tex2D(_cloud, float2(ul, _Time.x*20. + 458.36)).xy);
+				float da = tex2D(_img, i.uv).a;
+			float la = smoothstep(0.1, 0., distance(da, 0.1 + m2.y * 0.3))*0.5;
+			float lb = smoothstep(0.1, 0., distance(da, 0.1 + m2.x * 0.3))*0.5;
+			float l1 = la + lb + max(la, lb);
+			l1 = smoothstep(0., 1., ov(l1*0.7, pow(tex2D(_bnoise, i.uv*2. - _Time.x*10.).x, tr*10.)));
+            return float4(r2+ro* pow( cco,0.01) + l1*zo*pow(cco,0.1), 1.);
+			//return tex2D(_img, i.uv);
             }
             ENDCG
         }

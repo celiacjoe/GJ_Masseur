@@ -1194,6 +1194,61 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226090, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: NoiseModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226090, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: NoiseModule.frequency
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226090, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: NoiseModule.strength.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226090, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226090, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: InitialModule.startSizeY.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226090, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226090, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: InitialModule.startSizeY.minScalar
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226091, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 306844681851226091, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226091, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: m_LengthScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226091, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3fd7634df42e8a6408c57e6ae4859226, type: 2}
     - target: {fileID: 306844681851226092, guid: f89b3f6866a131a4cbf9ebf98249a495,
         type: 3}
       propertyPath: m_Name
@@ -1493,8 +1548,6 @@ GameObject:
   m_Component:
   - component: {fileID: 774750820}
   - component: {fileID: 774750823}
-  - component: {fileID: 774750822}
-  - component: {fileID: 774750821}
   m_Layer: 0
   m_Name: viewKinect
   m_TagString: MainCamera
@@ -1516,28 +1569,6 @@ Transform:
   m_Father: {fileID: 842609772}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &774750821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 774750819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c1ead572dd960c4099f5d46665f643e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effect: {fileID: 2100000, guid: d891d33335940a14f97e5d1ec9ff5226, type: 2}
-  flash: 0
---- !u!81 &774750822
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 774750819}
-  m_Enabled: 1
 --- !u!20 &774750823
 Camera:
   m_ObjectHideFlags: 0
@@ -1653,6 +1684,61 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226090, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: NoiseModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226090, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: NoiseModule.frequency
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226090, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: NoiseModule.strength.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226090, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226090, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: InitialModule.startSizeY.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226090, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226090, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: InitialModule.startSizeY.minScalar
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226091, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 306844681851226091, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226091, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: m_LengthScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226091, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3fd7634df42e8a6408c57e6ae4859226, type: 2}
     - target: {fileID: 306844681851226092, guid: f89b3f6866a131a4cbf9ebf98249a495,
         type: 3}
       propertyPath: m_Name
@@ -2691,6 +2777,25 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3224244844844610428}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1206342401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206342399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355a99b677f7d1545bd2999f18f11f13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  compute_shader: {fileID: 7200000, guid: 6a28448f7f8f4dc4aa735a413b4c6a29, type: 3}
+  E: {fileID: 8400000, guid: 367947740997ca046ac0cdc24d8e7d54, type: 2}
+  material: {fileID: 2100000, guid: d891d33335940a14f97e5d1ec9ff5226, type: 2}
+  _s1: 0.077
+  _s2: 0.066
+  _s3: 0
+  _s4: 0.029
 --- !u!1001 &1220808041
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3730,6 +3835,61 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226090, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: NoiseModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226090, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: NoiseModule.frequency
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226090, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: NoiseModule.strength.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226090, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226090, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: InitialModule.startSizeY.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226090, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226090, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: InitialModule.startSizeY.minScalar
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226091, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 306844681851226091, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226091, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: m_LengthScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226091, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3fd7634df42e8a6408c57e6ae4859226, type: 2}
     - target: {fileID: 306844681851226092, guid: f89b3f6866a131a4cbf9ebf98249a495,
         type: 3}
       propertyPath: m_Name
@@ -3815,6 +3975,61 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226090, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: NoiseModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226090, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: NoiseModule.frequency
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226090, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: NoiseModule.strength.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226090, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226090, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: InitialModule.startSizeY.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226090, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226090, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: InitialModule.startSizeY.minScalar
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226091, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 306844681851226091, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226091, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: m_LengthScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226091, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3fd7634df42e8a6408c57e6ae4859226, type: 2}
     - target: {fileID: 306844681851226092, guid: f89b3f6866a131a4cbf9ebf98249a495,
         type: 3}
       propertyPath: m_Name
@@ -4518,6 +4733,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226090, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: NoiseModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226090, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: NoiseModule.frequency
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226090, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: NoiseModule.strength.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226091, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 306844681851226091, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226091, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: m_LengthScale
+      value: 4.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 306844681851226091, guid: f89b3f6866a131a4cbf9ebf98249a495,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3fd7634df42e8a6408c57e6ae4859226, type: 2}
     - target: {fileID: 306844681851226092, guid: f89b3f6866a131a4cbf9ebf98249a495,
         type: 3}
       propertyPath: m_Name
@@ -4934,6 +5184,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6800040868801426505, guid: aa0f60179f99e21469dcb948268287e9,
         type: 3}
+      propertyPath: E
+      value: 
+      objectReference: {fileID: 8400000, guid: 367947740997ca046ac0cdc24d8e7d54, type: 2}
+    - target: {fileID: 6800040868801426505, guid: aa0f60179f99e21469dcb948268287e9,
+        type: 3}
       propertyPath: _s1
       value: 0.53
       objectReference: {fileID: 0}
@@ -4965,7 +5220,7 @@ PrefabInstance:
     - target: {fileID: 6800040868801426505, guid: aa0f60179f99e21469dcb948268287e9,
         type: 3}
       propertyPath: deb
-      value: 265.73
+      value: 358.64
       objectReference: {fileID: 0}
     - target: {fileID: 6800040868801426505, guid: aa0f60179f99e21469dcb948268287e9,
         type: 3}
@@ -5027,6 +5282,11 @@ PrefabInstance:
       propertyPath: _blur4
       value: 0.041
       objectReference: {fileID: 0}
+    - target: {fileID: 6800040868801426505, guid: aa0f60179f99e21469dcb948268287e9,
+        type: 3}
+      propertyPath: material2
+      value: 
+      objectReference: {fileID: 2100000, guid: d891d33335940a14f97e5d1ec9ff5226, type: 2}
     - target: {fileID: 6800040868801426511, guid: aa0f60179f99e21469dcb948268287e9,
         type: 3}
       propertyPath: m_IsActive
