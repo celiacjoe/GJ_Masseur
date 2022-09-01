@@ -60,12 +60,14 @@ public class S_Timer : MonoBehaviour
     {
         Text.InfoJ1();
         AC_Timer.SetTrigger("PlayTimerJ1");
+        Manager.J2 = false;
     }
 
     public void StartTimerJ2()
     {
         Text.InfoJ2();
         AC_Timer.SetTrigger("PlayTimerJ2");
+        Manager.J2 = true;
     }
 
     public void StartTimerVoice()
