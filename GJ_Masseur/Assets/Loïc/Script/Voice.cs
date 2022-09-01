@@ -11,7 +11,7 @@ public class Voice : MonoBehaviour
     void Start()
     {
       word = WorldGenerator.GetRandomWord();
-        VoiceStarted = false;
+      VoiceStarted = false;
     }
     
     // Update is called once per frame
@@ -33,6 +33,7 @@ public class Voice : MonoBehaviour
 
     public void LaunchVoice()
     {
+        word = WorldGenerator.GetRandomWord();
         WindowsVoice.speak("Draw me a " + word);
     }
 
@@ -40,4 +41,6 @@ public class Voice : MonoBehaviour
     {
         WindowsVoice.speak("Is the best " + word +"I Never seen !");
     }
+
+
 }
