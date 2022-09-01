@@ -35,7 +35,6 @@ public class S_Manager : MonoBehaviour
         J2 = false;
     }
 
-
     void Update(){
         /////////////////////////////////////////////////// DEBUG
         if (Input.GetKeyDown("a")){
@@ -56,14 +55,11 @@ public class S_Manager : MonoBehaviour
         /////////////////////////////////////////////////// PHASE
         if (Phase == "Tuto")
         {
-            Cheker.SetActive(true);
         }else if (Phase == "Menu")
         {
-            Cheker.SetActive(true);
         }
         else if (Phase == "Started")        /////////////// START
-        {
-            Cheker.SetActive(false);
+        {        
             // AC_Transition.GetBool("GameIsRunning");
             // AC_Transition.SetBool("GameIsRunning", true);
             if (Round == 0) ///////////////////////////// Round0
@@ -125,8 +121,7 @@ public class S_Manager : MonoBehaviour
         {
             Timer.StartTimerJ1();
             Round++;
-        }else
-        {
+        }else{
             EndOfTheGame();
         }
     }
@@ -141,10 +136,17 @@ public class S_Manager : MonoBehaviour
         // AC_Transition.SetBool("GameIsRunning",false);
         //S_LeapControl.OBJ = LayerEmpty;
     }
-    public void Loop() {//// lAUNCHED AT THE end - TRANSITION TO MENU
+    public void Loop() {//// LAUNCHED AT THE end - TRANSITION TO MENU
         LaunchMenu();
+        Layer01.SetActive(false);
+        Layer02.SetActive(false);
+        Layer03.SetActive(false);
+        Layer04.SetActive(false);
+        S_Detec._img1 = 0f;
+        S_Detec._img2 = 0f;
+        S_Detec._img3 = 0f;
+        S_Detec._img4 = 0f;
         Phase = "Menu";
     }
-
 
 }

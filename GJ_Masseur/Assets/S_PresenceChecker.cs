@@ -32,7 +32,6 @@ public class S_PresenceChecker : MonoBehaviour
         if (col.gameObject.tag == "Hand" && Manager.Phase == "Menu")
         {
             //Timer.StartTimerPresence();
-
             Someone = true;
         }
         else if (col.gameObject.tag == "Hand" && Manager.Phase == "Tuto")
@@ -48,5 +47,6 @@ public class S_PresenceChecker : MonoBehaviour
             Someone = false;
         }
     }
+
 
 }
