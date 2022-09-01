@@ -12,6 +12,8 @@ public class S_Timer : MonoBehaviour
     public S_Text Text;
     public float Time;
     public string word;
+    public LEAP_ControlSender S_LeapControl;
+
 
     void Start()
     {
@@ -62,6 +64,7 @@ public class S_Timer : MonoBehaviour
         Text.InfoJ1();
         AC_Timer.SetTrigger("PlayTimerJ1");
         Manager.J2 = false;
+        S_LeapControl.OBJ = Manager.LayerEmpty;
     }
 
     public void StartTimerJ2()
@@ -69,6 +72,22 @@ public class S_Timer : MonoBehaviour
         Text.InfoJ2();
         AC_Timer.SetTrigger("PlayTimerJ2");
         Manager.J2 = true;
+        if (Manager.Round == 1)
+        {
+            S_LeapControl.OBJ = Manager.Layer01;
+        }else if (Manager.Round == 2)
+        {
+            S_LeapControl.OBJ = Manager.Layer02;
+        }
+        else if (Manager.Round == 3)
+        {
+            S_LeapControl.OBJ = Manager.Layer03;
+        }
+        else if (Manager.Round == 4)
+        {
+            S_LeapControl.OBJ = Manager.Layer04;
+        }
+        // S_LeapControl.OBJ = Layer01;
     }
 
     public void StartTimerVoice()
@@ -90,7 +109,9 @@ public class S_Timer : MonoBehaviour
        if(Manager.Round ==1)
         {
             S_Detec._img1 = 0.6f;
-        }else if (Manager.Round == 2)
+
+        }
+        else if (Manager.Round == 2)
         {
             S_Detec._img2 = 0.6f;
         }
@@ -110,6 +131,8 @@ public class S_Timer : MonoBehaviour
        AC_Timer.SetTrigger("End");
        AC_Timer.GetBool("PlayTimerVoice");
        AC_Timer.SetBool("PlayTimerVoice", false);
+
+       S_LeapControl.OBJ = Manager.LayerEmpty;
     }
 
 

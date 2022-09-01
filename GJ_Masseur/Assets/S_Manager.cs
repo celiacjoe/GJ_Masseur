@@ -7,7 +7,7 @@ public class S_Manager : MonoBehaviour
     public Animator AC_Transition;
   //  public detec S_Detec;
     public S_Text Text;
-    public LEAP_ControlSender S_LeapControl;
+   // public LEAP_ControlSender S_LeapControl;
     public S_Timer Timer;
   //  public Animator AC_Kinect;
     public string Phase;
@@ -73,21 +73,21 @@ public class S_Manager : MonoBehaviour
             {
               //  S_Detec._img1 = 0.6f;
                 Layer01.SetActive(true);
-                S_LeapControl.OBJ = Layer01;
+                //S_LeapControl.OBJ = Layer01;
             } else if (Round == 2 && J2 == true) ////////////////////// Round02
             {
                // S_Detec._img2 = 0.6f;
                 Layer02.SetActive(true);
-                S_LeapControl.OBJ = Layer02;
+               // S_LeapControl.OBJ = Layer02;
             } else if (Round == 3 && J2 == true) ////////////////////// Round03
             {
                // S_Detec._img3 = 0.6f;
-                S_LeapControl.OBJ = Layer03;
+               // S_LeapControl.OBJ = Layer03;
                 Layer03.SetActive(true);
             } else if (Round == 4 && J2 == true) ////////////////////// Round04
             {
               //  S_Detec._img4 = 0.6f;
-                S_LeapControl.OBJ = Layer04;
+                //S_LeapControl.OBJ = Layer04;
                 Layer04.SetActive(true);
             }
         }
@@ -139,7 +139,7 @@ public class S_Manager : MonoBehaviour
         Round = 0;
         AC_Transition.SetTrigger("PlayEndGame");// ANIM END
         // AC_Transition.SetBool("GameIsRunning",false);
-        S_LeapControl.OBJ = LayerEmpty;
+        //S_LeapControl.OBJ = LayerEmpty;
     }
     public void Loop() {//// lAUNCHED AT THE end - TRANSITION TO MENU
         LaunchMenu();

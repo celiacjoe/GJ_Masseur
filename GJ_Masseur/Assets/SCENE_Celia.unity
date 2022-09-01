@@ -2200,12 +2200,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 739d7363f8af9b343b97040164d1ecaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  S_Detec: {fileID: 8277696099726444341}
   Timer: {fileID: 379942892}
   Manager: {fileID: 1289506659}
   Presence: {fileID: 969238944}
   Text: {fileID: 592059050}
   Time: 0
   word: 
+  S_LeapControl: {fileID: 903613384}
 --- !u!95 &379942896
 Animator:
   serializedVersion: 3
@@ -5842,11 +5844,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AC_Transition: {fileID: 4875355548609862492}
-  S_Detec: {fileID: 8277696099726444341}
   Text: {fileID: 592059050}
-  S_LeapControl: {fileID: 903613384}
   Timer: {fileID: 379942894}
-  AC_Kinect: {fileID: 0}
   Phase: Menu
   Round: 0
   J2: 0
