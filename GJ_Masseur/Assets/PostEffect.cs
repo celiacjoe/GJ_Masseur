@@ -10,9 +10,11 @@ public class PostEffect : MonoBehaviour
     public float flash;
     [Range(0, 1)]
     public float mvt;
+    public AudioSource audioflash;
     void Update()
     {
-
+     if(flash != 0) { audioflash.enabled=true; }
+     else { audioflash.enabled=false; }
     }
         void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
