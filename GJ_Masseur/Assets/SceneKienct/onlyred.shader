@@ -121,8 +121,10 @@
 			   float tr = smoothstep(0.1, 0.85, lerp(tex2D(_stroke, un).x, lerp(tex2D(_stroke, un).z, tex2D(_stroke, un).y, step(0.5, rd(_Time.x + 475.23))), step(0.5, rd(_Time.x + 956.))));
 
 			   l1 = smoothstep(0.,1., ov(l1*_f3, pow(tex2D(_bnoise, i.screenPosition*2. - _Time.x*10.).x, tr*_f4*40.)))*zo;
-
-                return float4(col.x*co+l1*co2,1.);
+			   float tt = tex2D(_bnoise, i.screenPosition*2. - bt).x;
+			   float bcc = col.x;
+			    bcc =ov(bcc, lerp(0.5, pow(tt, tr), 0.4));
+                return float4(bcc*co+l1*co2,1.);
 			   //return float4 (da, da, da, 1.);
             }
             ENDCG

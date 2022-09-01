@@ -12585,23 +12585,23 @@ MonoBehaviour:
   _img2: 0
   _img3: 0
   _img4: 0
-  _s1: 0.169
-  _s2: 0.405
+  _s1: 0.23
+  _s2: 0.446
   _s3: 0.661
   _s4: 0.124
   _s5: 0.066
   _s6: 0.32
-  _rx1: 0.136
-  _rx2: 0.723
-  _ry1: 0.149
-  _ry2: 0.723
+  _rx1: 0.461
+  _rx2: 0.74
+  _ry1: 0.047
+  _ry2: 0.465
   _blur: 0.208
-  _blur2: 0
-  _blur3: 0
+  _blur2: 0.129
+  _blur3: 0.06
   _blur4: 0
   DepthSourceManager: {fileID: 8277696099656116828}
-  deb: 76
-  scale: -0.2
+  deb: 40.35
+  scale: -0.08
 --- !u!64 &8277696099726444342
 MeshCollider:
   m_ObjectHideFlags: 0

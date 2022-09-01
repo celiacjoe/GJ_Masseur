@@ -3,6 +3,7 @@
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+		_screen("screen", 2D) = "white" {}
 	    _noise("noise", 2D) = "white" {}
 		_bnoise("bnoise", 2D) = "white" {}
         _flash("_flash", Range(0,1)) = 0
@@ -39,6 +40,7 @@
             sampler2D _MainTex;
 			sampler2D _noise;
 			sampler2D _bnoise;
+			sampler2D _screen;
             float4 _MainTex_ST;
             float _flash;
 			float _f1;
@@ -101,7 +103,7 @@
 				}
 			d0 /= 128.;*/
 
-            return float4(r2, 1.);
+            return float4(max(r2,tex2D(_screen,i.uv).x), 1.);
             
             }
             ENDCG

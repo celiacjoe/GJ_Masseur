@@ -147,7 +147,7 @@ public class detec : MonoBehaviour
         compute_shader.Dispatch(handle_main, D.width / 8, D.height / 8, 1);
         compute_shader.SetTexture(handle_main, "reader3", C);
         compute_shader.SetTexture(handle_main, "writer2", D);
-        compute_shader.Dispatch(handle_main, B.width / 8, B.height / 8, 1);
+        //compute_shader.Dispatch(handle_main, B.width / 8, B.height / 8, 1);
         material.SetTexture("_MainTex", C);
         img1.GetComponent<Renderer>().material.mainTexture = B;
         img2.GetComponent<Renderer>().material.mainTexture = B;
