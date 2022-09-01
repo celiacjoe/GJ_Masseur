@@ -23,7 +23,7 @@ public class S_Manager : MonoBehaviour
 
     void Start()
     {
-        Phase = "Nobody";
+        Phase = "Menu";
         Round = 0;
         Layer01.SetActive(false);
         Layer02.SetActive(false);

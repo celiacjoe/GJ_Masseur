@@ -12,18 +12,14 @@ public class S_Text : MonoBehaviour
     public TextMeshPro T_J2;
     public TextMeshPro T_Counter;
     public Animator AC_Text;
-    public string w;
     //private const string label = "<#0050FF> </color>{0:2}";
     //private float m_frame;
 
     void Start()
     {
-        Timer.word = w;
-
         T_J1.SetText("");
         T_J2.SetText("");
-        T_Counter.SetText("");
-        
+        T_Counter.SetText("");      
     }
 
     void Update()
@@ -63,7 +59,6 @@ public class S_Text : MonoBehaviour
     }
     public void ConsigneOnGame()
     {
-        Timer.word = w;
         T_Consigne.SetText("Draw a " + Timer.word + " with your body!");
         AC_Text.SetTrigger("SetConsigne");
         AC_Text.GetBool("GameIsRunning");

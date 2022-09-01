@@ -52,7 +52,6 @@ public class S_Timer : MonoBehaviour
         WindowsVoice.speak("Draw me a " + word);
     }
 
-
     public void EndRound()
     {       
         Manager.NextRound();
