@@ -7,13 +7,14 @@ public class S_Timer : MonoBehaviour
     public GameObject Timer;
     private Animator AC_Timer;
     public S_Manager Manager;
+    public S_PresenceChecker Presence;
     public S_Text Text;
     public float Time;
     public string word;
 
     void Start()
     {
-        word = WorldGenerator.GetRandomWord();
+        //word = WorldGenerator.GetRandomWord();
         AC_Timer = Timer.GetComponent<Animator>();
         AC_Timer.GetBool("PlayTimerVoice");
         AC_Timer.SetBool("PlayTimerVoice", false);
@@ -26,9 +27,37 @@ public class S_Timer : MonoBehaviour
             AC_Timer.GetBool("GameIsRunning");
             AC_Timer.SetBool("GameIsRunning",false);
         }
+
+        if (Presence.Someone == false)
+        {
+            AC_Timer.GetBool("Presence");
+            AC_Timer.SetBool("Presence", false);
+        }else if(Presence.Someone ==true && Manager.Phase == "Menu")
+        {
+            AC_Timer.GetBool("Presence");
+            AC_Timer.SetBool("Presence", true);
+        }else if (Presence.Someone == true && Manager.Phase == "Menu")
+        {
+            AC_Timer.GetBool("Presence");
+            AC_Timer.SetBool("Presence", true);
+        }
     }
 
-    public void StartTimerJ1() {
+  /*  public void StartTimerPresence() {
+        if (Manager.Phase == "Menu" && Presence.Someone==true)
+        {
+            AC_Timer.GetBool("Presence");
+            AC_Timer.SetBool("Presence",true);
+        }
+    }*/
+
+    public void TimerPresenceFull()
+    {
+        Manager.LaunchGameSession();
+    }
+
+    public void StartTimerJ1()
+    {
         Text.InfoJ1();
         AC_Timer.SetTrigger("PlayTimerJ1");
     }
@@ -41,6 +70,7 @@ public class S_Timer : MonoBehaviour
 
     public void StartTimerVoice()
     {
+        Debug.Log("NEW");
         word = WorldGenerator.GetRandomWord();
         AC_Timer.GetBool("PlayTimerVoice");
         AC_Timer.SetBool("PlayTimerVoice", true);

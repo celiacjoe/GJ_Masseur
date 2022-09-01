@@ -9,7 +9,7 @@ public class WorldGenerator : MonoBehaviour
                                     "ninja", "guitare", "hot-dog", "pizza", "tiger", "rhinoceros", "elephant",
                                     "airplane", "car", "truck", "mammoth", "dolphin", "sofa", "dragon",
                                     "squirrel", "spider", "france", "cheese", "shark", "knight",
-                                    "cow", "unicorn", "bear", "moon", "robot", "mountain", "computer",
+                                    "cow", "unicorn", "bear", "moon", "robot", "mountain", "computer", "Octopus"
                                       };
 
     public static string GetRandomWord()

@@ -26,28 +26,31 @@ public class S_Text : MonoBehaviour
     {
         if (Manager.Round == 0)
         {
-            T_J1.SetText("J1 use your body to create");
-            T_J2.SetText("J2 Compose with the shape");
+            T_J1.SetText("Round 0");
+            T_J2.SetText("J2 Round 0");
         }
         else if (Manager.Round == 1)
         {
-            T_J1.SetText("J1 it's your turn !");
-            T_J2.SetText("J2 Assemble les formes");
+            T_J1.SetText("J1 use your body to create");
+            T_J2.SetText("J2 Compose with the shape");
             T_Counter.SetText("I");
         }
         else if (Manager.Round == 2)
         {
-            T_J2.SetText("J2!");
-            T_J1.SetText("J1...");
+            T_J1.SetText("J1 it's your turn !");
+            T_J2.SetText("J2 Assemble les formes");
             T_Counter.SetText("I l");
         }
         else if (Manager.Round == 3)
         {
+            T_J2.SetText("J2!");
+            T_J1.SetText("J1...");
+            T_Counter.SetText("I l");
             T_J1.SetText("J1 it's your last shape!");
             T_J2.SetText("J2 Compose with the last shape!");
             T_Counter.SetText("I l I");
         }
-        else if (Manager.Round == 3)
+        else if (Manager.Round == 4)
         {
             T_J1.SetText("J1 it's your last shape!");
             T_J2.SetText("J2 Compose with the last shape!");
@@ -72,38 +75,11 @@ public class S_Text : MonoBehaviour
     }
     public void InfoJ2()
     {
-
-      /*  if (Manager.Round == 1)
-        {
-            T_J2.SetText("J2 Compose with the shape");
-        }else if (Manager.Round == 2)
-        {
-            T_J2.SetText("J2 Assemble les formes");
-        }else if (Manager.Round == 3)
-        {
-            T_J2.SetText("J2!");
-        }else if (Manager.Round == 4)
-        {
-            T_J2.SetText("J2 Compose with the last shape!");
-        }*/
         AC_Text.SetTrigger("ApparitionTextJ2");
     }
 
     public void Round()
     {
-       /* if (Manager.Round == 1)
-        {
-            T_Counter.SetText("I");
-        }else if (Manager.Round == 2)
-        {
-            T_Counter.SetText("I l");
-        }else if (Manager.Round == 3)
-        {
-            T_Counter.SetText("I l I");
-        }else if (Manager.Round == 4)
-        {
-            T_Counter.SetText("I l I l");
-        }*/
         AC_Text.SetTrigger("SetCounter");
     }
 

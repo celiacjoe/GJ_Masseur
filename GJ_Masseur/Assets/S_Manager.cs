@@ -21,8 +21,11 @@ public class S_Manager : MonoBehaviour
     public GameObject Layer04;
     public GameObject LayerEmpty;
 
+    public GameObject Cheker;
+
     void Start()
     {
+        LaunchMenu();
         Phase = "Menu";
         Round = 0;
         Layer01.SetActive(false);
@@ -52,18 +55,19 @@ public class S_Manager : MonoBehaviour
         /////////////////////////////////////////////////// PHASE
         if (Phase == "Tuto")
         {
-            AC_Transition.SetTrigger("PlayTuto");
+            Cheker.SetActive(true);
         }else if (Phase == "Menu")
         {
-            AC_Transition.SetTrigger("PlayMenu");
+            Cheker.SetActive(true);
         }
         else if (Phase == "Started")        /////////////// START
         {
-           // AC_Transition.GetBool("GameIsRunning");
-           // AC_Transition.SetBool("GameIsRunning", true);
+            Cheker.SetActive(false);
+            // AC_Transition.GetBool("GameIsRunning");
+            // AC_Transition.SetBool("GameIsRunning", true);
             if (Round == 0) ///////////////////////////// Round0
             {              
-              AC_Transition.SetTrigger("PlayNewGame"); // Launch game session
+              //AC_Transition.SetTrigger("PlayNewGame"); // Launch game session
             } else if (Round == 1) ////////////////////// Round01
             {
                 S_Detec._img1 = 0.6f;
@@ -88,7 +92,23 @@ public class S_Manager : MonoBehaviour
         }
 
     }
+
+    public void LaunchTuto()
+    {
+        AC_Transition.SetTrigger("PlayTuto");
+        Phase = "Tuto";
+    }
+    public void LaunchMenu()
+    {
+        AC_Transition.SetTrigger("PlayMenu");
+        Phase = "Menu";
+    }
+
     public void LaunchGameSession()
+    {
+        AC_Transition.SetTrigger("PlayNewGame");
+    }
+    public void Gamestarted()
     {
         Timer.StartTimerVoice();
         Text.InfoJ1();
@@ -96,14 +116,14 @@ public class S_Manager : MonoBehaviour
         Text.ConsigneOnGame();
         Round++;
     }
+
     public void NextRound()
     {
         if (Round < 4)
         {
             Timer.StartTimerJ1();
             Round++;
-        }
-        else
+        }else
         {
             EndOfTheGame();
         }
@@ -113,8 +133,6 @@ public class S_Manager : MonoBehaviour
     {
         Text.TextEndGame();
         Timer.PlayEndTimer();
-       // S_Voice.VoiceStarted = false;
-       // S_Voice.VoiceEnd();
         Phase = "Finished";
         Round = 0;
         AC_Transition.SetTrigger("PlayEndGame");// ANIM END
@@ -122,7 +140,7 @@ public class S_Manager : MonoBehaviour
         S_LeapControl.OBJ = LayerEmpty;
     }
     public void Loop() {//// lAUNCHED AT THE end - TRANSITION TO MENU
-        AC_Transition.SetTrigger("PlayMenu");
+        LaunchMenu();
         Phase = "Menu";
     }
 
