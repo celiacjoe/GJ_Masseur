@@ -8,7 +8,7 @@ public class S_Timer : MonoBehaviour
     public GameObject Timer;
     private Animator AC_Timer;
     public S_Manager Manager;
-    public S_PresenceChecker Presence;
+   // public S_PresenceChecker Presence;
     public S_Text Text;
     public float Time;
     public string word;

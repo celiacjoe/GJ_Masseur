@@ -9,19 +9,16 @@ public class S_Manager : MonoBehaviour
     public S_Text Text;
    // public LEAP_ControlSender S_LeapControl;
     public S_Timer Timer;
-  //  public Animator AC_Kinect;
     public string Phase;
     public int Round;
     public bool J2;
-  //  public Voice S_Voice;
-   // public GameObject LayerBase;
     public GameObject Layer01;
     public GameObject Layer02;
     public GameObject Layer03;
     public GameObject Layer04;
     public GameObject LayerEmpty;
 
-    public GameObject Cheker;
+   // public GameObject Cheker;
 
     void Start()
     {
@@ -69,21 +66,17 @@ public class S_Manager : MonoBehaviour
             {
                 S_Detec._img1 = 0.6f;
                 Layer01.SetActive(true);
-                //S_LeapControl.OBJ = Layer01;
             } else if (Round == 2 && J2 == true) ////////////////////// Round02
             {
                 S_Detec._img2 = 0.6f;
                 Layer02.SetActive(true);
-               // S_LeapControl.OBJ = Layer02;
             } else if (Round == 3 && J2 == true) ////////////////////// Round03
             {
                 S_Detec._img3 = 0.6f;
-               // S_LeapControl.OBJ = Layer03;
                 Layer03.SetActive(true);
             } else if (Round == 4 && J2 == true) ////////////////////// Round04
             {
                 S_Detec._img4 = 0.6f;
-                //S_LeapControl.OBJ = Layer04;
                 Layer04.SetActive(true);
             }
         }
