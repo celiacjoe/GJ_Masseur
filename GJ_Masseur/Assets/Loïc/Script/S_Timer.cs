@@ -106,10 +106,9 @@ public class S_Timer : MonoBehaviour
 
     public void EndRound()
     {       
-       if(Manager.Round ==1)
+       /*if(Manager.Round ==1)
         {
             S_Detec._img1 = 0.6f;
-
         }
         else if (Manager.Round == 2)
         {
@@ -122,7 +121,7 @@ public class S_Timer : MonoBehaviour
         else if (Manager.Round == 4)
         {
             S_Detec._img4 = 0.6f;
-        }
+        }*/
         Manager.NextRound();
     }
 
