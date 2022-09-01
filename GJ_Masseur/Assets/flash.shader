@@ -92,7 +92,7 @@
             float2 d4 = float2(d1 - d2, d1 - d3) * 0.2;
             uv += d4;
 			float2 uv2 = uv;
-            uv2.y += sin(uv2.x * 10. + _Time.x*50.)*0.1*_mvt;
+            uv2.y += sin(uv2.x * 10. + _Time.x*50.)*0.07*_mvt;
             uv2 = (uv2 - 0.5) * 2.;
             uv2 = mul(uv2, rot(sin(_Time.x * 30.) * _mvt*0.05) );
 			uv2 = uv2 * 0.5 + 0.5;
