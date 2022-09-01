@@ -86,7 +86,7 @@ public class S_Manager : MonoBehaviour
     }
     public void LaunchMenu()
     {
-        Sound.FunnySource.volume = 1f; //////// SOUND Volume INCREASE
+        Sound.FunnySource.volume = 0.6f; //////// SOUND Volume INCREASE
         Sound.PlayFunnyMusic();
         AC_Transition.SetTrigger("PlayMenu");
         Phase = "Menu";
@@ -94,7 +94,7 @@ public class S_Manager : MonoBehaviour
 
     public void LaunchGameSession()
     {
-        Sound.FunnySource.volume = 0.65f; //////// SOUND Volume
+        Sound.FunnySource.volume = 0.15f; //////// SOUND Volume
         AC_Transition.SetTrigger("PlayNewGame");
     }
     public void Gamestarted()
@@ -120,7 +120,7 @@ public class S_Manager : MonoBehaviour
 
     public void EndOfTheGame()
     {
-        Sound.FunnySource.volume = 0.1f; //////// SOUND Volume
+        Sound.FunnySource.volume = 0.05f; //////// SOUND Volume
         Text.TextEndGame();
         Timer.PlayEndTimer();
         Phase = "Finished";
