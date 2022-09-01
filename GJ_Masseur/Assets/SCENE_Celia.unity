@@ -5944,6 +5944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AC_Transition: {fileID: 4875355548609862492}
+  S_Detec: {fileID: 8277696099726444341}
   Text: {fileID: 592059050}
   Timer: {fileID: 379942894}
   Phase: Menu

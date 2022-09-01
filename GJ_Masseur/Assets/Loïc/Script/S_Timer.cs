@@ -35,7 +35,7 @@ public class S_Timer : MonoBehaviour
         {
             AC_Timer.GetBool("Presence");
             AC_Timer.SetBool("Presence", false);
-        }else if(Presence.Someone ==true && Manager.Phase == "Menu")
+        }else if(Presence.Someone ==true && Manager.Phase == "Tuto")
         {
             AC_Timer.GetBool("Presence");
             AC_Timer.SetBool("Presence", true);
@@ -43,9 +43,12 @@ public class S_Timer : MonoBehaviour
         {
             AC_Timer.GetBool("Presence");
             AC_Timer.SetBool("Presence", true);
+        }else if (Manager.Phase == "Started")
+        {
+            AC_Timer.GetBool("Presence");
+            AC_Timer.SetBool("Presence", false);
         }
     }
-
   /*  public void StartTimerPresence() {
         if (Manager.Phase == "Menu" && Presence.Someone==true)
         {
