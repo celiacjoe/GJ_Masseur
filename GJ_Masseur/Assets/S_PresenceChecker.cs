@@ -8,6 +8,7 @@ public class S_PresenceChecker : MonoBehaviour
     public S_Manager Manager;
     public float T;
     public bool Someone;
+    public GameObject GO01;
     void Start()
     {
         Someone = false;
@@ -16,7 +17,15 @@ public class S_PresenceChecker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (GO01.activeInHierarchy == true && Manager.Phase == "Tuto")
+        {
+            Manager.LaunchMenu();
+            //Someone = true;
+        }
+        else if (GO01.activeInHierarchy == true && Manager.Phase == "Menu")
+        {
+            Someone = true;
+        }
     }
     private void OnCollisionEnter(Collision col)
     {
@@ -24,7 +33,7 @@ public class S_PresenceChecker : MonoBehaviour
           {
             Manager.LaunchMenu();
             Debug.Log("LaunchMenu cause of presence");
-            Someone = true;
+            
         }
     }
     void OnCollisionStay(Collision col)
