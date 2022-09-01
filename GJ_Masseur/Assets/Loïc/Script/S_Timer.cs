@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class S_Timer : MonoBehaviour
 {
+    public detec S_Detec;
     public GameObject Timer;
     private Animator AC_Timer;
     public S_Manager Manager;
@@ -86,6 +87,21 @@ public class S_Timer : MonoBehaviour
 
     public void EndRound()
     {       
+       if(Manager.Round ==1)
+        {
+            S_Detec._img1 = 0.6f;
+        }else if (Manager.Round == 2)
+        {
+            S_Detec._img2 = 0.6f;
+        }
+        else if (Manager.Round == 3)
+        {
+            S_Detec._img3 = 0.6f;
+        }
+        else if (Manager.Round == 4)
+        {
+            S_Detec._img4 = 0.6f;
+        }
         Manager.NextRound();
     }
 
