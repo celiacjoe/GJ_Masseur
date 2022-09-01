@@ -8,13 +8,16 @@ public class detec : MonoBehaviour
     RenderTexture B;
     RenderTexture C;
     RenderTexture D;
-    //public Texture C;
+    /*RenderTexture F;
+    RenderTexture G;
+    public Texture E;  */
     //public GameObject decor;
     public GameObject img1;
     public GameObject img2;
     public GameObject img3;
     public GameObject img4;
     public Material material;
+    //public Material material2;
     int handle_main;
     [Range(0, 1)]
     public float _img1;
@@ -91,6 +94,12 @@ public class detec : MonoBehaviour
         D = new RenderTexture(1024, 1024, 0);
         D.enableRandomWrite = true;
         D.Create();
+       /* F = new RenderTexture(1920, 1080, 0);
+        F.enableRandomWrite = true;
+        F.Create();
+        G = new RenderTexture(1920, 1080, 0);
+        G.enableRandomWrite = true;
+        G.Create();                  */
         handle_main = compute_shader.FindKernel("CSMain");
     }
     void OnGUI()
@@ -120,6 +129,8 @@ public class detec : MonoBehaviour
         compute_shader.SetTexture(handle_main, "reader", A);
         compute_shader.SetTexture(handle_main, "reader2", texture);
         compute_shader.SetTexture(handle_main, "reader3", D);
+       // compute_shader.SetTexture(handle_main, "reader4", E);
+       // compute_shader.SetTexture(handle_main, "reader5", F);
         compute_shader.SetFloat("_time", Time.time);
         compute_shader.SetFloat("_img1", _img1);
         compute_shader.SetFloat("_img2", _img2);
@@ -141,14 +152,19 @@ public class detec : MonoBehaviour
         compute_shader.SetFloat("_blur4", _blur4);
         compute_shader.SetTexture(handle_main, "writer", B);
         compute_shader.SetTexture(handle_main, "writer2", C);
+       // compute_shader.SetTexture(handle_main, "writer3", G);
         compute_shader.Dispatch(handle_main, B.width / 8, B.height / 8, 1);
         compute_shader.SetTexture(handle_main, "reader", B);
         compute_shader.SetTexture(handle_main, "writer", A);
         compute_shader.Dispatch(handle_main, D.width / 8, D.height / 8, 1);
         compute_shader.SetTexture(handle_main, "reader3", C);
         compute_shader.SetTexture(handle_main, "writer2", D);
-        //compute_shader.Dispatch(handle_main, B.width / 8, B.height / 8, 1);
+       // compute_shader.Dispatch(handle_main, F.width / 8, F.height / 8, 1);
+        //compute_shader.SetTexture(handle_main, "reader5", G);
+        //compute_shader.SetTexture(handle_main, "writer3", F);
+        compute_shader.Dispatch(handle_main, B.width / 8, B.height / 8, 1);
         material.SetTexture("_MainTex", C);
+        //material2.SetTexture("_img", G);
         img1.GetComponent<Renderer>().material.mainTexture = B;
         img2.GetComponent<Renderer>().material.mainTexture = B;
         img3.GetComponent<Renderer>().material.mainTexture = B;

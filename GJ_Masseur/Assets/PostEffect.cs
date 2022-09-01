@@ -8,6 +8,8 @@ public class PostEffect : MonoBehaviour
     public Material effect;
     [Range(0, 1)]
     public float flash;
+    [Range(0, 1)]
+    public float mvt;
     void Update()
     {
 
@@ -16,5 +18,6 @@ public class PostEffect : MonoBehaviour
     {
         Graphics.Blit(source, destination, effect);
         effect.SetFloat("_flash", flash);
+        effect.SetFloat("_mvt", flash);
     }
 }

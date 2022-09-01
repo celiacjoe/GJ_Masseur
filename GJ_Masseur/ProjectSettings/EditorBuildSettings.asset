@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/SCENE_Celia.unity
+    guid: 401d06a8fd44ead4b89dbe476bf3ded4
   m_configObjects: {}
