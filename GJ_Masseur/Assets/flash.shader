@@ -91,14 +91,16 @@
             float d3 = smoothstep(t5, t5 - 0.5, distance(uv.x, 0.5)) * smoothstep(t5, t5 - 0.5, distance(uv.y + 0.1, 0.5));
             float2 d4 = float2(d1 - d2, d1 - d3) * 0.2;
             uv += d4;
-            uv.y += sin(uv.x * 10. + _Time.x*50.)*0.1*_mvt;
-            float2 uv2 = (uv - 0.5) * 2.;
+			float2 uv2 = uv;
+            uv2.y += sin(uv2.x * 10. + _Time.x*50.)*0.1*_mvt;
+            uv2 = (uv2 - 0.5) * 2.;
             uv2 = mul(uv2, rot(sin(_Time.x * 30.) * _mvt*0.05) );
+			uv2 = uv2 * 0.5 + 0.5;
 			float2 un = i.uv * float2(1.78, 1.);
 			float bt = rd(_Time.x);
 			un = mul(un, rot(bt*6.));
 			un += float2(rd(_Time.x+47.42), rd(_Time.x+457.23));
-            float4 c = tex2D(_MainTex, uv2*0.5+0.5);
+            float4 c = tex2D(_MainTex, uv);
             float3 c2 = pow(clamp(c - t1 * 0.1, 0., 1.), lerp(1., 20., smoothstep(0.2, 0.4, e)));
             float3 r1 = lerp(lerp(lerp(lerp(c2, 1. - c2, t1), c2, t2), 1. - c2, t3), c.xyz, t4);
 			float tr = lerp(tex2D(_noise, un).x, lerp(tex2D(_noise, un).z, tex2D(_noise, un).y,step(0.5,rd(_Time.x+475.23 ))),step(0.5,rd(_Time.x+956.)) );
@@ -113,7 +115,7 @@
 					d0 += tt(i.uv + float2(k, j)*0.01*_f3 );
 				}
 			d0 /= 128.;*/
-			float ro = tex2D(_screen, i.uv).x;
+			float ro = tex2D(_screen, uv2).x;
 			ro = ov(ro, lerp(0.5, pow(h, tr), 0.4));
 
 			float ul = atan2(uc.x-0.25, -uc.y) / 3.14;
@@ -121,7 +123,7 @@
 			float zo = max(step(0.5, frac(ul*lerp(10., 25., rd(_Time.x*0.1+12.)) + rd(_Time.x*3.+98.56))), step(0.8, rd(_Time.x*0.5+45.)))*smoothstep(0.45, 0.55, tex2D(_cloud, float2(_Time.x*10.+563., _Time.x*0.01)).x);
 			float3 cco = tex2D(_grad, float2(_Time.x*80. + 0.5, 0.)).xyz;
 			float2 m2 = tex2D(_perlin, float2(ul*2., _Time.x*40. + 458.36)).xy*0.5 + smoothstep(0., 1., tex2D(_cloud, float2(ul, _Time.x*20. + 458.36)).xy);
-				float da = tex2D(_img, i.uv).a;
+				float da = tex2D(_img, uv2).a;
 			float la = smoothstep(0.1, 0., distance(da, 0.1 + m2.y * 0.3))*0.5;
 			float lb = smoothstep(0.1, 0., distance(da, 0.1 + m2.x * 0.3))*0.5;
 			float l1 = la + lb + max(la, lb);
