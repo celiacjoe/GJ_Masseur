@@ -66,20 +66,21 @@
 
 
 			float2 uv = (i.uv - 0.5)*2.;
-			uv = mul(uv, rot(sin(_Time.y*4.)*0.1));
-			uv.x += sin(uv.y*3. + _Time.y*4.)*0.025;
-			float ti = _Time.y*3.;
-			uv.y += pow(lerp(frac(ti),1.-frac(ti),step(0.5,frac(ti*0.5))),2.)*0.5+0.1;
-			float t = (sin(_Time.y)*0.5 + 0.5)*5. + _Time.y * 10.;
+			float t = floor(_Time.y*20.)*0.05;
+			uv = mul(uv, rot(sin(t*4.)*0.1));
+			uv.x += sin(uv.y*3. + t*4.)*0.025;
+			float tti = t*3.;
+			uv.y += pow(lerp(frac(tti),1.-frac(tti),step(0.5,frac(tti*0.5))),2.)*0.5+0.1;
+			float ti = (sin(t)*0.5 + 0.5)*5. + t * 10.;
 			float l1 = smoothstep(0.45, 0., li(uv, float2(0., -0.2), float2(0., 0.2)));
-			float tt = sin(t);
+			float tt = sin(ti);
 			float2 ub = uv + float2(0., -pow(length(uv.x), 2.)*(tt))*0.7;
 			float2 ug = uv + float2(-pow(length(uv.y), 2.)*(tt), 0.)*0.2*-sign(uv.x)*length(uv);
 			float bb = smoothstep(0.3, 0., li(ub, float2(0., 0.25), float2(0.5, tt*0.2 + 0.2)));
 			l1 = max(bb, l1);
 			float ba = smoothstep(0.3, 0., li(ub, float2(0., 0.25), float2(-0.5, tt*0.2 + 0.2)));
 			l1 = max(ba, l1);
-			l1 = max(smoothstep(0.3, 0., li(ug, float2(0.05, -0.2), float2(0.25 + sin(t + 3.14)*0.15, -0.8))), l1);
+			l1 = max(smoothstep(0.3, 0., li(ug, float2(0.05, -0.2), float2(0.25 + sin(ti + 3.14)*0.15, -0.8))), l1);
 			l1 = max(smoothstep(0.3, 0., li(ug, float2(-0.05, -0.22), float2(-0.25 + tt * 0.15, -0.8))), l1);
 			float2 zb = uv - float2(0., 0.45 + tt * 0.05);
 			float bc = smoothstep(0.45 + tt * -0.02, 0., length(zb));
