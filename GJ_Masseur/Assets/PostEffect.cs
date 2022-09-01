@@ -18,6 +18,6 @@ public class PostEffect : MonoBehaviour
     {
         Graphics.Blit(source, destination, effect);
         effect.SetFloat("_flash", flash);
-        effect.SetFloat("_mvt", flash);
+        effect.SetFloat("_mvt", mvt);
     }
 }
