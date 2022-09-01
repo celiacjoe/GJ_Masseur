@@ -17,6 +17,7 @@ public class S_Manager : MonoBehaviour
     public GameObject Layer03;
     public GameObject Layer04;
     public GameObject LayerEmpty;
+    public S_Sound Sound;
 
    // public GameObject Cheker;
 
@@ -39,18 +40,12 @@ public class S_Manager : MonoBehaviour
     void Update(){
         /////////////////////////////////////////////////// DEBUG
         if (Input.GetKeyDown("a")){
-            Phase = "Tuto";
-            Debug.Log("Nobody");
+            Sound.PlayFunnyMusic();
         }
 
-        if (Input.GetKeyDown("z")){
-            Phase = "Menu";
-            Debug.Log("Someone is detected");
-        }
-
-        if (Input.GetKeyDown("e")){
-            Phase = "Started";
-            Debug.Log("A new game is starting !");
+        if (Input.GetKeyDown("r"))
+        {
+            Application.LoadLevel(Application.loadedLevel);
         }
 
         /////////////////////////////////////////////////// PHASE
@@ -61,8 +56,6 @@ public class S_Manager : MonoBehaviour
         }
         else if (Phase == "Started")        /////////////// START
         {        
-            // AC_Transition.GetBool("GameIsRunning");
-            // AC_Transition.SetBool("GameIsRunning", true);
             if (Round == 0) ///////////////////////////// Round0
             {              
 
@@ -84,7 +77,6 @@ public class S_Manager : MonoBehaviour
                 Layer04.SetActive(true);
             }
         }
-
     }
 
     public void LaunchTuto()
@@ -94,12 +86,15 @@ public class S_Manager : MonoBehaviour
     }
     public void LaunchMenu()
     {
+        Sound.FunnySource.volume = 1f; //////// SOUND Volume INCREASE
+        Sound.PlayFunnyMusic();
         AC_Transition.SetTrigger("PlayMenu");
         Phase = "Menu";
     }
 
     public void LaunchGameSession()
     {
+        Sound.FunnySource.volume = 0.65f; //////// SOUND Volume
         AC_Transition.SetTrigger("PlayNewGame");
     }
     public void Gamestarted()
@@ -125,6 +120,7 @@ public class S_Manager : MonoBehaviour
 
     public void EndOfTheGame()
     {
+        Sound.FunnySource.volume = 0.1f; //////// SOUND Volume
         Text.TextEndGame();
         Timer.PlayEndTimer();
         Phase = "Finished";
