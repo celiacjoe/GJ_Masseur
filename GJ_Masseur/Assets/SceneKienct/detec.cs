@@ -55,6 +55,8 @@ public class detec : MonoBehaviour
     public float _blur3;
     [Range(0, 1)]
     public float _blur4;
+    [Range(0, 1)]
+    public float _erase;
     public GameObject DepthSourceManager;
     private KinectSensor _Sensor;
     private CoordinateMapper _Mapper;
@@ -150,6 +152,7 @@ public class detec : MonoBehaviour
         compute_shader.SetFloat("_blur2", _blur2);
         compute_shader.SetFloat("_blur3", _blur3);
         compute_shader.SetFloat("_blur4", _blur4);
+        compute_shader.SetFloat("_erase", _erase);
         compute_shader.SetTexture(handle_main, "writer", B);
         compute_shader.SetTexture(handle_main, "writer2", C);
        // compute_shader.SetTexture(handle_main, "writer3", G);
