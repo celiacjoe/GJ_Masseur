@@ -5846,9 +5846,10 @@ MonoBehaviour:
   Text: {fileID: 592059050}
   S_LeapControl: {fileID: 903613384}
   Timer: {fileID: 379942894}
-  AC_Kinect: {fileID: 5394457006518402307}
+  AC_Kinect: {fileID: 0}
   Phase: Menu
   Round: 0
+  J2: 0
   Layer01: {fileID: 127455231}
   Layer02: {fileID: 1803559851}
   Layer03: {fileID: 31533308}
@@ -5901,7 +5902,7 @@ MonoBehaviour:
   GO_Sphere: {fileID: 733572378}
   PP: {fileID: 8277696100243968810}
   AC_Next: {fileID: 1304355679}
-  AC_Kinect: {fileID: 5394457006518402307}
+  AC_Kinect: {fileID: 0}
   Empty: {fileID: 1962472530}
   LayerBase: {fileID: 8277696099726444339}
   Layer01: {fileID: 127455231}
@@ -12809,7 +12810,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2607522737894150075}
-  - component: {fileID: 5394457006518402307}
   m_Layer: 0
   m_Name: '[KINECT]'
   m_TagString: Untagged
@@ -12817,25 +12817,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &5394457006518402307
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5394457006518402306}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e32c7f72db7be3d4bac0ab777d14a22e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!23 &5537770599900065436
 MeshRenderer:
   m_ObjectHideFlags: 0
