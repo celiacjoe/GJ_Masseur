@@ -114,6 +114,7 @@ public class S_Manager : MonoBehaviour
         Text.InfoJ1();
         Timer.StartTimerJ1();
         Text.ConsigneOnGame();
+        Phase = "Started";
         Round++;
     }
 
