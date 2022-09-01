@@ -13,11 +13,11 @@ public class S_Timer : MonoBehaviour
     public float Time;
     public string word;
     public LEAP_ControlSender S_LeapControl;
-
+    public GameObject GO01;
+    public GameObject GO02;
 
     void Start()
     {
-        //word = WorldGenerator.GetRandomWord();
         AC_Timer = Timer.GetComponent<Animator>();
         AC_Timer.GetBool("PlayTimerVoice");
         AC_Timer.SetBool("PlayTimerVoice", false);
@@ -28,34 +28,34 @@ public class S_Timer : MonoBehaviour
         if (Manager.Phase == "Finished")
         {
             AC_Timer.GetBool("GameIsRunning");
-            AC_Timer.SetBool("GameIsRunning",false);
+            AC_Timer.SetBool("GameIsRunning", false);
         }
 
-        if (Presence.Someone == false)
+        if (GO01.activeInHierarchy == true || GO02.activeInHierarchy == true)
+        {
+            if (Manager.Phase == "Tuto")
+            {
+                Manager.LaunchMenu();
+            }
+            else if (Manager.Phase == "Menu")
+            {
+                AC_Timer.GetBool("Presence");
+                AC_Timer.SetBool("Presence", true);
+            }
+        }
+
+        if (Manager.Phase == "Started")
         {
             AC_Timer.GetBool("Presence");
             AC_Timer.SetBool("Presence", false);
-        }else if(Presence.Someone ==true && Manager.Phase == "Tuto")
-        {
-            AC_Timer.GetBool("Presence");
-            AC_Timer.SetBool("Presence", true);
-        }else if (Presence.Someone == true && Manager.Phase == "Menu")
-        {
-            AC_Timer.GetBool("Presence");
-            AC_Timer.SetBool("Presence", true);
-        }else if (Manager.Phase == "Started")
+        }
+
+        if (GO01.activeInHierarchy == false && GO02.activeInHierarchy == false)
         {
             AC_Timer.GetBool("Presence");
             AC_Timer.SetBool("Presence", false);
         }
     }
-  /*  public void StartTimerPresence() {
-        if (Manager.Phase == "Menu" && Presence.Someone==true)
-        {
-            AC_Timer.GetBool("Presence");
-            AC_Timer.SetBool("Presence",true);
-        }
-    }*/
 
     public void TimerPresenceFull()
     {
