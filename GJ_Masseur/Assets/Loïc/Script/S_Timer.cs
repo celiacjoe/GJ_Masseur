@@ -61,7 +61,7 @@ public class S_Timer : MonoBehaviour
 
     public void TimerPresenceFull()
     {
-        PP.GetComponent<PostEffect>().effect.SetFloat("_mvt", 0f);
+        PP.mvt = 0f;
         Manager.LaunchGameSession();
     }
 
@@ -125,7 +125,9 @@ public class S_Timer : MonoBehaviour
 
     public void WavyEffect()//// Launched by animation end
     {
-        PP.GetComponent<PostEffect>().effect.SetFloat("_mvt", 1f);
+       // PP.GetComponent<PostEffect>().effect.SetFloat("_mvt", 1f);
+        PP.mvt = 1f;
+        Debug.Log("gggdgdd");
     }
 
 
