@@ -10,6 +10,8 @@ public class PostEffect : MonoBehaviour
     public float flash;
     [Range(0, 1)]
     public float mvt;
+    [Range(0, 1)]
+    public float fin;
     public AudioSource audioflash;
     void Update()
     {
@@ -21,5 +23,6 @@ public class PostEffect : MonoBehaviour
         Graphics.Blit(source, destination, effect);
         effect.SetFloat("_flash", flash);
         effect.SetFloat("_mvt", mvt);
+        effect.SetFloat("_fin", fin);
     }
 }

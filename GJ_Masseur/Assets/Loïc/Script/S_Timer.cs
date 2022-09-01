@@ -62,6 +62,7 @@ public class S_Timer : MonoBehaviour
     public void TimerPresenceFull()
     {
         PP.mvt = 0f;
+        PP.fin = 0f;
         Manager.LaunchGameSession();
     }
 
@@ -123,12 +124,7 @@ public class S_Timer : MonoBehaviour
        S_LeapControl.OBJ = Manager.LayerEmpty;
     }
 
-    public void WavyEffect()//// Launched by animation end
-    {
-       // PP.GetComponent<PostEffect>().effect.SetFloat("_mvt", 1f);
-        PP.mvt = 1f;
-        Debug.Log("gggdgdd");
-    }
+
 
 
 }

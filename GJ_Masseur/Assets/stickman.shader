@@ -7,17 +7,15 @@
 		_stroke("stroke", 2D) = "white" {}
 		_grad("grad", 2D) = "white" {}
     }
-    SubShader
-    {
-        Tags { "RenderType"="Opaque" }
-        LOD 100
-
-        Pass
-        {
-            CGPROGRAM
-            #pragma vertex vert
-            #pragma fragment frag
-
+   
+	   SubShader{
+			 Tags  {"Queue" = "Transparent" "RenderType" = "Transparent" }
+		LOD 100
+		Blend One One
+			Pass{
+				 CGPROGRAM
+			#pragma vertex vert
+			#pragma fragment frag
 
             #include "UnityCG.cginc"
 

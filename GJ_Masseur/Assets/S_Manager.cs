@@ -29,6 +29,10 @@ public class S_Manager : MonoBehaviour
         Layer02.SetActive(false);
         Layer03.SetActive(false);
         Layer04.SetActive(false);
+        S_Detec._img1 = 0f;
+        S_Detec._img2 = 0f;
+        S_Detec._img3 = 0f;
+        S_Detec._img4 = 0f;
         J2 = false;
     }
 
