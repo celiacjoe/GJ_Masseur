@@ -12,7 +12,7 @@ public class S_Manager : MonoBehaviour
     public Animator AC_Kinect;
     public string Phase;
     public int Round;
-    public Voice S_Voice;
+  //  public Voice S_Voice;
 
    // public GameObject LayerBase;
     public GameObject Layer01;
@@ -25,84 +25,76 @@ public class S_Manager : MonoBehaviour
     {
         Phase = "Nobody";
         Round = 0;
-        AC_Transition.SetBool("PlayTuto", false);
+        Layer01.SetActive(false);
+        Layer02.SetActive(false);
+        Layer03.SetActive(false);
+        Layer04.SetActive(false);
     }
 
 
     void Update(){
         /////////////////////////////////////////////////// DEBUG
-        if (Input.GetKeyDown("a"))
-        {
-            Phase = "Nobody";
+        if (Input.GetKeyDown("a")){
+            Phase = "Tuto";
             Debug.Log("Nobody");
         }
 
-        if (Input.GetKeyDown("z"))
-        {
-            Phase = "Someone";
+        if (Input.GetKeyDown("z")){
+            Phase = "Menu";
             Debug.Log("Someone is detected");
         }
 
-        if (Input.GetKeyDown("e"))
-        {
-            Phase = "Start";
+        if (Input.GetKeyDown("e")){
+            Phase = "Started";
             Debug.Log("A new game is starting !");
         }
 
         /////////////////////////////////////////////////// PHASE
-        if (Phase == "Nobody")
+        if (Phase == "Tuto")
         {
-            AC_Transition.SetBool("PlayTuto", true);
-        }else if (Phase == "Someone")
+            AC_Transition.SetTrigger("PlayTuto");
+        }else if (Phase == "Menu")
         {
-            AC_Transition.SetBool("PlayTuto", false);
-        }else if (Phase == "Start")        /////////////// START
+            AC_Transition.SetTrigger("PlayMenu");
+        }
+        else if (Phase == "Started")        /////////////// START
         {
-            AC_Transition.GetBool("GameIsRunning");
-            AC_Transition.SetBool("GameIsRunning", true);
-
-            if (Round == 0) ////////////////////////////// Round01
+           // AC_Transition.GetBool("GameIsRunning");
+           // AC_Transition.SetBool("GameIsRunning", true);
+            if (Round == 0) ///////////////////////////// Round0
             {              
-              AC_Transition.SetTrigger("PlayNewGame");
-            } else if (Round == 1)
+              AC_Transition.SetTrigger("PlayNewGame"); // Launch game session
+            } else if (Round == 1) ////////////////////// Round01
             {
                 S_Detec._img1 = 0.6f;
                 Layer01.SetActive(true);
                 S_LeapControl.OBJ = Layer01;
-               // Debug.Log("PHASE 1 OK");
             } else if (Round == 2) ////////////////////// Round02
             {
                 S_Detec._img2 = 0.6f;
                 Layer02.SetActive(true);
                 S_LeapControl.OBJ = Layer02;
-                //Debug.Log("PHASE 2 OK");
             } else if (Round == 3) ////////////////////// Round03
             {
                 S_Detec._img3 = 0.6f;
                 S_LeapControl.OBJ = Layer03;
                 Layer03.SetActive(true);
-               // Debug.Log("PHASE 3 OK");
             } else if (Round == 4) ////////////////////// Round04
             {
                 S_Detec._img4 = 0.6f;
                 S_LeapControl.OBJ = Layer04;
                 Layer04.SetActive(true);
-                //Debug.Log("PHASE 4 OK");
             }
         }
 
     }
     public void LaunchGameSession()
     {
-        S_Voice.LaunchVoice();
+        Timer.StartTimerVoice();
         Text.InfoJ1();
-        //Text.Round();
-        S_Voice.VoiceStarted = true;
         Timer.StartTimerJ1();
         Text.ConsigneOnGame();
         Round++;
-
-        Debug.Log("InfoJ1IslAUNCHED");
     }
     public void NextRound()
     {
@@ -121,17 +113,17 @@ public class S_Manager : MonoBehaviour
     {
         Text.TextEndGame();
         Timer.PlayEndTimer();
-        S_Voice.VoiceStarted = false;
-        S_Voice.VoiceEnd();
+       // S_Voice.VoiceStarted = false;
+       // S_Voice.VoiceEnd();
         Phase = "Finished";
         Round = 0;
-        AC_Transition.SetBool("GameIsRunning",false);// ANIM END
+        AC_Transition.SetTrigger("PlayEndGame");// ANIM END
+        // AC_Transition.SetBool("GameIsRunning",false);
         S_LeapControl.OBJ = LayerEmpty;
     }
-    public void Loop() //// lAUNCHED AT THE end of END OF THE GAME 
-    {
-        AC_Transition.SetTrigger("PlayBackMenu");
-        Phase = "Someone";
+    public void Loop() {//// lAUNCHED AT THE end - TRANSITION TO MENU
+        AC_Transition.SetTrigger("PlayMenu");
+        Phase = "Menu";
     }
 
 

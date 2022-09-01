@@ -8,12 +8,15 @@ public class S_Timer : MonoBehaviour
     private Animator AC_Timer;
     public S_Manager Manager;
     public S_Text Text;
+    public float Time;
+    public string word;
 
-    public
     void Start()
     {
-       AC_Timer = Timer.GetComponent<Animator>();
-        
+        word = WorldGenerator.GetRandomWord();
+        AC_Timer = Timer.GetComponent<Animator>();
+        AC_Timer.GetBool("PlayTimerVoice");
+        AC_Timer.SetBool("PlayTimerVoice", false);
     }
 
     void Update()
@@ -23,16 +26,11 @@ public class S_Timer : MonoBehaviour
             AC_Timer.GetBool("GameIsRunning");
             AC_Timer.SetBool("GameIsRunning",false);
         }
-
     }
 
     public void StartTimerJ1() {
-        AC_Timer.GetBool("GameIsRunning");
-        AC_Timer.SetBool("GameIsRunning", true);
         Text.InfoJ1();
-        //Text.Round();
         AC_Timer.SetTrigger("PlayTimerJ1");
-
     }
 
     public void StartTimerJ2()
@@ -41,8 +39,21 @@ public class S_Timer : MonoBehaviour
         AC_Timer.SetTrigger("PlayTimerJ2");
     }
 
+    public void StartTimerVoice()
+    {
+        word = WorldGenerator.GetRandomWord();
+        AC_Timer.GetBool("PlayTimerVoice");
+        AC_Timer.SetBool("PlayTimerVoice", true);
+        WindowsVoice.speak("Draw me a " + word);
+    }
 
-   public void EndRound()
+    public void RepeatVoice()
+    {
+        WindowsVoice.speak("Draw me a " + word);
+    }
+
+
+    public void EndRound()
     {       
         Manager.NextRound();
     }
@@ -50,6 +61,8 @@ public class S_Timer : MonoBehaviour
     public void PlayEndTimer()
     {
        AC_Timer.SetTrigger("End");
+       AC_Timer.GetBool("PlayTimerVoice");
+       AC_Timer.SetBool("PlayTimerVoice", false);
     }
 
 
