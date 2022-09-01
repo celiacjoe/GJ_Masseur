@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Voice : MonoBehaviour
+public class TimerVoice : MonoBehaviour
 {
     public bool VoiceStarted;
     public float T;
@@ -11,11 +11,11 @@ public class Voice : MonoBehaviour
     void Start()
     {
       word = WorldGenerator.GetRandomWord();
-      VoiceStarted = false;
+    //  VoiceStarted = false;
     }
     
     // Update is called once per frame
-    void Update()
+ /*   void Update()
     {
         if (VoiceStarted == true)
         {
@@ -41,6 +41,7 @@ public class Voice : MonoBehaviour
     {
         WindowsVoice.speak("Is the best " + word +"I Never seen !");
     }
+ */
 
 
 }
