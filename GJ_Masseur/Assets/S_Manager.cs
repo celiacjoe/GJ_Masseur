@@ -5,7 +5,7 @@ using UnityEngine;
 public class S_Manager : MonoBehaviour
 {
     public Animator AC_Transition;
-  //  public detec S_Detec;
+    public detec S_Detec;
     public S_Text Text;
    // public LEAP_ControlSender S_LeapControl;
     public S_Timer Timer;
@@ -71,22 +71,22 @@ public class S_Manager : MonoBehaviour
 
             } else if (Round == 1 && J2==true) ////////////////////// Round01
             {
-              //  S_Detec._img1 = 0.6f;
+                S_Detec._img1 = 0.6f;
                 Layer01.SetActive(true);
                 //S_LeapControl.OBJ = Layer01;
             } else if (Round == 2 && J2 == true) ////////////////////// Round02
             {
-               // S_Detec._img2 = 0.6f;
+                S_Detec._img2 = 0.6f;
                 Layer02.SetActive(true);
                // S_LeapControl.OBJ = Layer02;
             } else if (Round == 3 && J2 == true) ////////////////////// Round03
             {
-               // S_Detec._img3 = 0.6f;
+                S_Detec._img3 = 0.6f;
                // S_LeapControl.OBJ = Layer03;
                 Layer03.SetActive(true);
             } else if (Round == 4 && J2 == true) ////////////////////// Round04
             {
-              //  S_Detec._img4 = 0.6f;
+                S_Detec._img4 = 0.6f;
                 //S_LeapControl.OBJ = Layer04;
                 Layer04.SetActive(true);
             }
